@@ -1,210 +1,234 @@
 /* =========================
-   Theme variables
+   Global theme & baseline
    ========================= */
    :root {
-    --bg: #f7f8fb;
-    --text: #2f3441;
+    --bg: #f5f7fb;
+    --text: #111827;
     --muted: #6b7280;
-    --border: #e6e8ef;
-    --card: #ffffff;
-  
     --primary: #0d6efd;
     --primary-600: #0a58ca;
-    --primary-100: #e9f5ff;
-  
+    --accent: #6f42c1;
+    --accent-600: #5a36a3;
     --success: #198754;
     --warning: #ffc107;
     --danger: #dc3545;
   
-    --shadow-sm: 0 2px 6px rgba(20, 25, 36, 0.06);
-    --shadow-md: 0 8px 24px rgba(20, 25, 36, 0.10);
-    --shadow-lg: 0 16px 36px rgba(20, 25, 36, 0.14);
-  
-    --radius: 12px;
-    --radius-sm: 8px;
+    --card: #ffffff;
+    --border: #e6e8ef;
+    --shadow: 0 6px 18px rgba(17,24,39,.06);
+    --ring: 0 0 0 3px rgba(13,110,253,.2);
   }
   
-  /* =========================
-     Global
-     ========================= */
   html, body {
     height: 100%;
   }
   
   body {
-    font-family: 'Noto Sans SC', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background-color: var(--bg);
+    font-family: "Noto Sans SC", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
     color: var(--text);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.55;
   }
   
   /* =========================
-     Header
+     Header (white bar + logos)
      ========================= */
-  header {
-    background: #111827; /* deep gray for better contrast */
+  .app-header {
+    background: #ffffff;
+    border-bottom: 1px solid var(--border);
   }
-  header .header-title {
+  .app-header .header-title {
+    color: var(--text);
     font-weight: 700;
-    font-size: 2.25rem;
+    font-size: 2rem;
+    margin: 0;
+    line-height: 1.2;
   }
-  
-  /* =========================
-     Logos
-     ========================= */
-  #logos img {
-    max-height: 72px;
+  .app-header .subtitle {
+    color: var(--muted);
+    margin: 0;
+  }
+  .app-header img {
+    height: 38px;
     object-fit: contain;
-    transition: transform .25s ease, filter .25s ease;
   }
-  #logos img:hover {
-    transform: translateY(-2px) scale(1.04);
-    filter: saturate(1.1);
+  @media (min-width: 992px) {
+    .app-header img { height: 44px; }
   }
   
   /* =========================
-     Intro / Hero
+     Cards & containers
      ========================= */
-  .intro-box {
+  .card,
+  .chart-container {
     background: var(--card);
     border: 1px solid var(--border);
-    border-left: 6px solid var(--primary);
-    border-radius: var(--radius);
-    line-height: 1.7;
-    box-shadow: var(--shadow-sm);
-  }
-  .intro-box .lead {
-    font-weight: 400;
-    color: var(--muted);
+    border-radius: .75rem;
+    box-shadow: var(--shadow);
   }
   
-  /* =========================
-     Visual summary image
-     ========================= */
-  #visual-summary .img-fluid {
-    border-radius: var(--radius);
-    transition: transform .25s ease, box-shadow .25s ease;
-    box-shadow: var(--shadow-sm);
-  }
-  #visual-summary .img-fluid:hover {
-    transform: scale(1.01);
-    box-shadow: var(--shadow-md);
-  }
-  
-  /* =========================
-     Filters panel (Mode 2)
-     ========================= */
-  #filters {
-    background: #ffffff;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: box-shadow .25s ease, transform .25s ease;
-    box-shadow: var(--shadow-sm);
-  }
-  #filters:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-1px);
-  }
-  
-  .form-control:focus,
-  .form-select:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .15);
-  }
-  
-  /* =========================
-     Charts
-     ========================= */
   .chart-container {
-    background-color: var(--card);
-    padding: 18px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow-sm);
-    transition: box-shadow .25s ease, transform .25s ease;
+    padding: 1rem;
+    height: 100%;
   }
-  .chart-container:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-2px);
-  }
-  
   .chart-title {
-    color: #495057;
-    margin-bottom: 12px;
+    margin-bottom: .6rem;
     font-weight: 600;
+    color: #374151;
   }
   
-  #phase-charts canvas { /* compact phase charts */
+  /* Global charts (dimension/modality/task) spacing for canvas */
+  #charts canvas {
+    max-height: 280px;
+    height: 280px;
+  }
+  
+  /* Phase charts compact height */
+  #phase-charts canvas {
     max-height: 220px;
     height: 220px;
   }
   
+  /* Hover pointer for interactive charts */
   canvas:hover {
     cursor: pointer;
   }
   
   /* =========================
-     Results banner
+     Intro box
      ========================= */
-  #results-count {
-    background-color: var(--primary-100);
-    border: 1px solid #bde0ff;
+  .intro-box {
+    background: #ffffff;
+    border: 1px solid var(--border);
     border-left: 6px solid var(--primary);
-    border-radius: var(--radius);
-    padding: 1rem 1.25rem;
-    margin-bottom: 1.25rem;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--primary-600);
-    box-shadow: var(--shadow-sm);
+    border-radius: 1rem;
+  }
+  .intro-box .lead {
+    color: var(--muted);
+    font-weight: 400;
   }
   
   /* =========================
-     Table
+     Logos row (overview images)
      ========================= */
-  .table-responsive {
-    background: transparent;
+  #visual-summary .img-fluid {
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  #visual-summary .img-fluid:hover {
+    transform: scale(1.01);
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
   }
   
-  /* Sticky header with subtle backdrop */
+  /* =========================
+     Filter row (Mode 1 + Mode 2)
+     ========================= */
+  #filters {
+    transition: box-shadow .25s ease;
+  }
+  #filters:hover {
+    box-shadow: 0 12px 32px rgba(0,0,0,.08);
+  }
+  .form-control:focus,
+  .form-select:focus,
+  textarea:focus {
+    border-color: var(--primary);
+    box-shadow: var(--ring);
+  }
+  
+  /* Mode 1 JSON textarea styling */
+  #filter-json {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+    background: #f9fafb;
+    border: 1px solid var(--border);
+    border-radius: .75rem;
+  }
+  
+  /* Phase running highlight (JS adds these classes) */
+  #filter-json.phase12-running {
+    border-left: 6px solid var(--primary);
+    box-shadow: 0 0 0 3px rgba(13,110,253,.12), 0 12px 28px rgba(13,110,253,.15);
+  }
+  #filter-json.phase34-running {
+    border-left: 6px solid var(--accent);
+    box-shadow: 0 0 0 3px rgba(111,66,193,.12), 0 12px 28px rgba(111,66,193,.15);
+  }
+  
+  /* Small helper text under JSON (optional) */
+  .json-help {
+    background: #f9fafb;
+    border: 1px dashed var(--border);
+    border-radius: .5rem;
+    color: #334155;
+    font-size: .9rem;
+    padding: .75rem .85rem;
+  }
+  
+  /* Error text for invalid JSON */
+  #json-error {
+    font-size: .9rem;
+  }
+  
+  /* =========================
+     Results banner above table
+     ========================= */
+  #results-count {
+    background: #e9f5ff;
+    border: 1px solid #bde0ff;
+    border-left: 6px solid var(--primary);
+    border-radius: .75rem;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--primary-600);
+    box-shadow: var(--shadow);
+  }
+  
+  /* =========================
+     Table styling
+     ========================= */
+  .table-responsive {
+    background: #ffffff;
+    border-radius: .75rem;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  
   .table thead {
     position: sticky;
     top: 0;
-    z-index: 10;
-    background: #1f2937; /* slate-800 */
-    color: #fff;
-    box-shadow: 0 2px 0 rgba(0,0,0,.06);
-  }
-  .table thead th {
-    border: none;
-    letter-spacing: .2px;
-    font-weight: 600;
-    font-size: .95rem;
+    z-index: 5;
   }
   
-  /* Row cells */
+  .table thead.table-dark th {
+    background: #111827 !important;
+    color: #ffffff !important;
+    border-color: #0e1116 !important;
+  }
+  
+  .table th {
+    font-weight: 600;
+    white-space: nowrap;
+  }
   .table td, .table th {
-    padding: 0.9rem 0.75rem;
+    padding: 1rem .85rem;
     vertical-align: middle;
   }
   
-  /* Zebra rows (subtle) */
   .table-striped > tbody > tr:nth-of-type(odd) > * {
-    --bs-table-accent-bg: #fafbfc;
+    --bs-table-accent-bg: #f8fafc;
   }
   
-  /* Row hover “lift” effect */
   .table-hover tbody tr {
-    transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+    transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
   }
   .table-hover tbody tr:hover {
-    background-color: #eef2ff; /* soft indigo tint */
+    background: #eef2ff;
     transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(17, 24, 39, .10);
+    box-shadow: 0 8px 20px rgba(0,0,0,.06);
   }
   
-  /* Links */
+  /* Links inside table */
   .table a {
     text-decoration: none;
     font-weight: 600;
@@ -214,67 +238,80 @@
     text-decoration: underline;
   }
   
-  /* “Badge” chip styling in Dimension column */
-  .badge.bg-secondary {
-    background: #6c757d;
-    border: 1px solid rgba(255,255,255,.35);
-    font-weight: 600;
-    letter-spacing: .2px;
-    padding: .4em .55em;
-    border-radius: 999px;
-  }
-  
   /* No results alert */
   #no-results {
     font-size: 1.05rem;
     font-weight: 600;
-    border-radius: var(--radius-sm);
+  }
+  
+  /* Loading indicator spacing */
+  #loading-indicator p {
+    color: var(--muted);
   }
   
   /* =========================
-     Cards (generic)
+     Summary table (Phase 4)
      ========================= */
-  .card {
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-sm);
+  .summary-title {
+    font-size: .95rem;
+    font-weight: 700;
   }
-  .card:hover {
-    box-shadow: var(--shadow-md);
+  #selection-summary table thead th {
+    font-size: .85rem;
+  }
+  #selection-summary table tbody td {
+    font-size: .92rem;
+  }
+  
+  /* =========================
+     Buttons tweaks
+     ========================= */
+  .btn-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+  }
+  .btn-primary:hover {
+    background: var(--primary-600);
+    border-color: var(--primary-600);
+  }
+  .btn-outline-primary {
+    color: var(--primary-600);
+    border-color: var(--primary-600);
+  }
+  .btn-outline-primary:hover {
+    color: #fff;
+    background: var(--primary-600);
+    border-color: var(--primary-600);
   }
   
   /* =========================
      Footer
      ========================= */
   footer {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    background: #111827;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
   }
   
   /* =========================
      Utilities
      ========================= */
-  .rounded-xl { border-radius: 16px !important; }
-  .shadow-soft { box-shadow: var(--shadow-sm) !important; }
-  .shadow-elevate { box-shadow: var(--shadow-md) !important; }
-  
-  /* Make buttons feel a bit crisper on hover */
-  .btn-primary:hover {
-    filter: brightness(0.98) saturate(1.05);
-    box-shadow: 0 6px 16px rgba(13, 110, 253, .25);
-    transform: translateY(-1px);
-    transition: all .18s ease;
+  .badge {
+    font-weight: 600;
+    letter-spacing: .2px;
   }
-  .btn-outline-primary:hover {
-    box-shadow: 0 6px 16px rgba(13, 110, 253, .20);
-    transform: translateY(-1px);
-    transition: all .18s ease;
+  .text-muted {
+    color: var(--muted) !important;
   }
   
-  /* Phase 4 small title already in HTML; ensure compact spacing */
-  .summary-title {
-    font-size: .95rem;
-    font-weight: 700;
+  /* Optional: compact selects in Mode 2 (look nicer on small screens) */
+  #filters .form-select,
+  #filters .form-control {
+    border-radius: .6rem;
+  }
+  
+  /* Optional: make JSON/filters cards equal height on large screens */
+  @media (min-width: 992px) {
+    #filter-row .card,
+    #filters { height: 100%; }
   }
   

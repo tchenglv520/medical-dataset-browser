@@ -22,44 +22,34 @@
   <!-- Project styles -->
   <link rel="stylesheet" href="static/css/style.css" />
 
-  <!-- Inline tweaks for header, layout, and compact phase charts -->
   <style>
-    /* White header with left/right logos */
-    .app-header {
-      background: #ffffff;
-      border-bottom: 1px solid #e6e8ef;
-    }
-    .app-header .header-title {
-      color: #111827;
-      font-weight: 700;
-      font-size: 2rem;
-      margin: 0;
-      line-height: 1.2;
-    }
-    .app-header .subtitle {
-      color: #6b7280;
-      margin: 0;
-    }
-    .app-header img {
-      height: 38px;
-      object-fit: contain;
-    }
-    @media (min-width: 992px) {
-      .app-header img { height: 44px; }
-    }
+    /* header */
+    .app-header{background:#fff;border-bottom:1px solid #e6e8ef}
+    .app-header .header-title{color:#111827;font-weight:700;font-size:2rem;margin:0;line-height:1.2}
+    .app-header .subtitle{color:#6b7280;margin:0}
+    .app-header img{height:38px;object-fit:contain}
+    @media (min-width: 992px){.app-header img{height:44px}}
 
-    /* Put Mode 1 (JSON) and Mode 2 (Quick) on one row */
-    #filter-row .card,
-    #filters { height: 100%; }
+    /* keep two-mode row aligned */
+    #filter-row .card,#filters{height:100%}
 
-    /* Compact phase charts */
-    #phase-charts canvas { max-height: 220px; height: 220px; }
+    /* compact phase charts */
+    #phase-charts canvas{max-height:220px;height:220px}
 
-    .summary-title { font-size: .95rem; font-weight: 700; }
+    /* Mode 1 helpers */
+    .small-muted{font-size:.9rem;color:#6c757d}
+    .json-hints{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:.75rem}
+    .hint-box{border:1px solid #e5e7eb;border-radius:.5rem;padding:.5rem .75rem;background:#fafafa;font-size:.9rem}
+    .hint-box b{font-weight:600}
+    .hint-box.active{box-shadow:0 0 0 .2rem rgba(13,110,253,.2);border-color:#0d6efd;background:#f0f6ff}
+    .phase12-active{box-shadow:0 0 0 .25rem rgba(13,110,253,.25)!important;border-color:#0d6efd!important}
+    .phase34-active{box-shadow:0 0 0 .25rem rgba(25,135,84,.25)!important;border-color:#198754!important}
+
+    .form-help{font-size:.85rem;color:#6c757d}
   </style>
 </head>
 <body>
-  <!-- Header (white) with one logo on the left and two on the right) -->
+  <!-- Header -->
   <header class="app-header py-3">
     <div class="container">
       <div class="d-flex align-items-center justify-content-between gap-3">
@@ -67,13 +57,11 @@
         <div class="d-flex align-items-center gap-2">
           <img src="static/img/logo-survey.png" alt="Survey Logo">
         </div>
-
-        <!-- Center: title -->
+        <!-- Center -->
         <div class="text-center flex-grow-1">
           <h1 class="header-title mb-1">Medical Dataset Browser</h1>
           <p class="subtitle">Exploring, retrieving and analyzing publicly available medical image datasets</p>
         </div>
-
         <!-- Right: two logos -->
         <div class="d-flex align-items-center gap-3">
           <img src="static/img/logo-shai.png" alt="Shanghai AI Lab Logo">
@@ -103,25 +91,29 @@
       </p>
     </section>
 
-    <!-- Visual summary -->
+    <!-- Visual summary (use img_4 left + overview right) -->
     <section id="visual-summary" class="mb-5">
-      <div class="row mb-4">
-        <div class="col-12">
-          <img src="static/img/overview.png" class="img-fluid rounded border" alt="Survey Overview" />
+      <div class="row g-3 align-items-center">
+        <div class="col-lg-6">
+          <img src="static/img/img_4.png" class="img-fluid rounded border" alt="Modality collage" />
+        </div>
+        <div class="col-lg-6">
+          <img src="static/img/overview.png" class="img-fluid rounded border" alt="Survey overview" />
         </div>
       </div>
     </section>
 
-    <!-- Filters row: Mode 1 (JSON) + Mode 2 (Quick) side by side -->
+    <!-- Filters row: Mode 1 + Mode 2 -->
     <section id="filter-row" class="mb-5">
       <div class="row g-4 align-items-stretch">
         <!-- Mode 1: JSON Rules -->
         <div class="col-lg-7">
           <section class="card p-3 p-md-4 h-100">
             <h5 class="mb-2">Filter Mode 1 · JSON Rules</h5>
-            <p class="text-muted mb-2">
-              Edit the JSON below and run <strong>Phase 1&2</strong> (rule-based filtering). Optionally run <strong>Phase 3&4</strong> (selection + summary).
+            <p class="small-muted mb-2">
+              Edit the JSON and run <b>Phase 1&2</b> (rule-based filtering). Optionally run <b>Phase 3&4</b> (selection + summary).
             </p>
+
             <textarea id="filter-json" class="form-control" rows="12" spellcheck="false">
 {
   "dimension": "2D",
@@ -139,13 +131,47 @@
   "selection": {
     "enable": false,
     "min_datasets_per_modality": 2,
-    "min_orgs_per_modality": 2
+    "min_orgs_per_modality": 2,
+    "storage_budget_gb": null
   }
 }
             </textarea>
+
+            <!-- Field guide -->
+            <details class="mt-2">
+              <summary class="form-help">Field guide & examples</summary>
+              <div class="mt-2 small">
+                <ul class="mb-2">
+                  <li><code>dimension</code>: one of <code>"2D"</code>, <code>"3D"</code>, <code>"video"</code>. <em>Tip</em>: set <code>allow_3d_as_2d_sources</code> to true if you accept 3D as 2D sources.</li>
+                  <li><code>modalities</code>: array of primary modalities (e.g., <code>["CT","MR","Fundus"]</code>).</li>
+                  <li><code>task_types</code>: array of clinical tasks (e.g., classification / segmentation / detection / regression).</li>
+                  <li><code>license_allowlist</code>: optional list of accepted licenses (strings), otherwise not restricted.</li>
+                  <li><code>include_unlabeled</code>: include datasets without labels (default true).</li>
+                  <li><code>prefer_labeled</code>: hint for downstream selection; does not filter by itself.</li>
+                  <li><code>min_valid_image_n_per_dataset</code>: minimum number of valid images per dataset.</li>
+                  <li><code>anatomy_whitelist</code>: restrict by organ keywords (substring match).</li>
+                  <li><code>release_date_min</code>: minimum release year (YYYY or "YYYY-MM-DD").</li>
+                  <li><code>selection.enable</code>: enable Phase 3 constraints. Use <code>min_datasets_per_modality</code>, <code>min_orgs_per_modality</code>; <code>storage_budget_gb</code> is optional (not enforced).</li>
+                </ul>
+              </div>
+            </details>
+
+            <!-- Phase key hints -->
+            <div class="json-hints">
+              <div id="hint-p12" class="hint-box">
+                <b>Phase 1&2 keys</b>: dimension, modalities, task_types, license_allowlist,
+                include_unlabeled, prefer_labeled, min_valid_image_n_per_dataset,
+                anatomy_whitelist, release_date_min, allow_3d_as_2d_sources
+              </div>
+              <div id="hint-p34" class="hint-box">
+                <b>Phase 3&4 keys</b>: selection.enable, selection.min_datasets_per_modality,
+                selection.min_orgs_per_modality, selection.storage_budget_gb
+              </div>
+            </div>
+
             <div class="mt-3 d-flex flex-wrap gap-2">
               <button id="btn-apply-phase12" class="btn btn-primary">Run Phase 1&2</button>
-              <button id="btn-apply-phase3" class="btn btn-outline-primary">Run Phase 3&4</button>
+              <button id="btn-apply-phase3" class="btn btn-outline-success">Run Phase 3&4</button>
               <span id="json-error" class="text-danger ms-2"></span>
             </div>
           </section>
@@ -155,7 +181,7 @@
         <div class="col-lg-5">
           <section id="filters" class="p-4 bg-light rounded-3 shadow-sm h-100">
             <h6 class="mb-3 text-muted">Filter Mode 2 · Quick Filters (search + dropdowns)</h6>
-            <div class="row g-3 align-items-center">
+            <div class="row g-3">
               <div class="col-12">
                 <input
                   type="text"
@@ -163,19 +189,35 @@
                   class="form-control form-control-lg"
                   placeholder="🔍 Search by dataset name, organization, or organ..." />
               </div>
+
+              <!-- Dimension: fixed 2D/3D/video + include-mixed checkbox -->
               <div class="col-12">
+                <label class="form-label mb-1">Dimension</label>
                 <select id="dimension-filter" class="form-select">
-                  <option value="">Dimensions</option>
+                  <option value="">All</option>
+                  <option value="2D">2D</option>
+                  <option value="3D">3D</option>
+                  <option value="video">video</option>
                 </select>
+                <div class="form-check mt-2">
+                  <input class="form-check-input" type="checkbox" id="include-mixed-dimension" checked>
+                  <label class="form-check-label form-help" for="include-mixed-dimension">
+                    Include mixed (e.g., 2D+3D)
+                  </label>
+                </div>
               </div>
+
               <div class="col-12">
+                <label class="form-label mb-1">Modality</label>
                 <select id="modality-filter" class="form-select">
-                  <option value="">Modality</option>
+                  <option value="">All</option>
                 </select>
               </div>
+
               <div class="col-12">
+                <label class="form-label mb-1">Task</label>
                 <select id="task-filter" class="form-select">
-                  <option value="">Task</option>
+                  <option value="">All</option>
                 </select>
               </div>
             </div>
@@ -184,7 +226,7 @@
       </div>
     </section>
 
-    <!-- Global charts (overview) -->
+    <!-- Global charts -->
     <section id="charts" class="mb-5">
       <div class="row text-center">
         <div class="col-lg-4 col-md-6 mb-4">
@@ -208,10 +250,9 @@
       </div>
     </section>
 
-    <!-- Phase charts (driven by JSON) -->
+    <!-- Phase charts -->
     <section id="phase-charts" class="mb-5">
       <div class="row text-center">
-        <!-- Phase 1&2: Bar + Pie on one row -->
         <div class="col-md-6 mb-4">
           <div class="chart-container">
             <h6 class="chart-title">Phase 1&2 – by Modality (Bar)</h6>
@@ -224,8 +265,6 @@
             <canvas id="phase12-task-pie"></canvas>
           </div>
         </div>
-
-        <!-- Phase 3: Bar + Pie on one row -->
         <div class="col-md-6 mb-4">
           <div class="chart-container">
             <h6 class="chart-title">Phase 3 – by Modality (Bar)</h6>
@@ -265,7 +304,7 @@
       </div>
     </section>
 
-    <!-- Dataset table (infinite scroll) -->
+    <!-- Dataset table -->
     <section id="dataset-table">
       <p id="results-count" class="text-muted" aria-live="polite"></p>
       <div class="table-responsive">
