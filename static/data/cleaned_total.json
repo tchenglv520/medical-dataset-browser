@@ -13017,6 +13017,37 @@
       "data_volume_raw": "{\"total\": \"{'3D-MR':55}\", \"train\": \"31\", \"val\": \"12\", \"test\": \"12\", \"label\": \"\"}"
     },
     {
+      "name": "CTVIE19",
+      "slug": "ctvie19-2019",
+      "link": "http://aapmchallenges.cloudapp.net/competitions/35",
+      "organization": null,
+      "challenge_series": "AAPM",
+      "license": null,
+      "release_date": "2019",
+      "year": 2019,
+      "dimension": "4D(3D + time)",
+      "modality": [
+        "CT"
+      ],
+      "modality_secondary": [],
+      "task": [
+        "Segmentation"
+      ],
+      "organ": "Lung",
+      "images_valid": 115,
+      "has_labels": true,
+      "num_classes": null,
+      "tumor": "liver tumor",
+      "quality_flag": "high",
+      "impact": "high",
+      "data_volume_total": 115,
+      "data_volume_train": 50,
+      "data_volume_val": null,
+      "data_volume_test": 65,
+      "data_volume_label": null,
+      "data_volume_raw": "{\"total\": \"{'4D-CT':115}\", \"train\": \"50\", \"val\": \"\", \"test\": \"65\", \"label\": \"\"}"
+    },
+    {
       "name": "B-ALL Classification of Normal vs Malignant Cells",
       "slug": "b-all-classification-of-normal-vs-malignant-cells-2018",
       "link": "https://competitions.codalab.org/competitions/20395#learn_the_details-overview",
@@ -14578,37 +14609,6 @@
       "data_volume_test": 32768,
       "data_volume_label": 262144,
       "data_volume_raw": "{'total': '327680', 'train': '262144', 'val': '32768', 'test': '32768', 'label': '262144'}"
-    },
-    {
-      "name": "Kvasir-SEG",
-      "slug": "kvasir-seg-2020",
-      "link": "https://tianchi.aliyun.com/dataset/dataDetail?dataId=84385",
-      "organization": "Simula Research Laboratory",
-      "challenge_series": "Tianchi",
-      "license": "CC BY-NC-SA 4.0",
-      "release_date": "2020-11",
-      "year": 2020,
-      "dimension": "2D",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Colon (Abdomen)",
-      "images_valid": 1000,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "polyp",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": null,
-      "data_volume_train": 1000,
-      "data_volume_val": 0,
-      "data_volume_test": 0,
-      "data_volume_label": 1000,
-      "data_volume_raw": "{'total': '1000', 'train': '1000', 'val': '0', 'test': '0', 'label': '1000'}"
     },
     {
       "name": "COVIDGR",
@@ -16177,117 +16177,6 @@
       "data_volume_raw": null
     },
     {
-      "name": "ISLES 2016",
-      "slug": "isles-2016-2016",
-      "link": "http://www.isles-challenge.org/ISLES2016/",
-      "organization": "University of Bern",
-      "challenge_series": "MICCAI",
-      "license": "CC-BY-NC",
-      "release_date": "2016-01",
-      "year": 2016,
-      "dimension": "3D",
-      "modality": [
-        "MR"
-      ],
-      "modality_secondary": [
-        "Adc",
-        "Mtt",
-        "Ttp",
-        "Tmax",
-        "Rcbf",
-        "Rcbv"
-      ],
-      "task": [
-        "Segmentation",
-        "Registration"
-      ],
-      "organ": "Brain",
-      "images_valid": 35,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "stroke lesion",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 49,
-      "data_volume_train": 30,
-      "data_volume_val": null,
-      "data_volume_test": 19,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-MR':49}\", 'train': '30', 'val': '', 'test': '19', 'label': ''}"
-    },
-    {
-      "name": "RibFrac2020",
-      "slug": "ribfrac2020-2020",
-      "link": "https://ribfrac.grand-challenge.org/",
-      "organization": "Shanghai Jiao Tong University",
-      "challenge_series": "MICCAI",
-      "license": "CC-BY-SA 4.0",
-      "release_date": "2020-06",
-      "year": 2020,
-      "dimension": "3D",
-      "modality": [
-        "CT"
-      ],
-      "modality_secondary": [
-        "CT"
-      ],
-      "task": [
-        "Detection",
-        "Classification",
-        "Localization"
-      ],
-      "organ": "Rib",
-      "images_valid": 500,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "rib fracture",
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 660,
-      "data_volume_train": 420,
-      "data_volume_val": 80,
-      "data_volume_test": 160,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT':660}\", 'train': '420', 'val': '80', 'test': '160', 'label': ''}"
-    },
-    {
-      "name": "Where is VALDO?",
-      "slug": "where-is-valdo-2021",
-      "link": "https://valdo.grand-challenge.org/Description/",
-      "organization": "MRC Unit for Lifelong Health and Ageing at UCL",
-      "challenge_series": "MICCAI",
-      "license": "CC-BY-NC",
-      "release_date": "2021-02",
-      "year": 2021,
-      "dimension": "3D",
-      "modality": [
-        "MR"
-      ],
-      "modality_secondary": [
-        "T1",
-        "T2",
-        "T2*"
-      ],
-      "task": [
-        "Segmentation",
-        "Detection",
-        "Localization"
-      ],
-      "organ": "Brain",
-      "images_valid": 40,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "white matter lesion",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 106,
-      "data_volume_train": 40,
-      "data_volume_val": null,
-      "data_volume_test": 66,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-MR':106}\", 'train': '40', 'val': '', 'test': '66', 'label': ''}"
-    },
-    {
       "name": "CrossMoDA2022",
       "slug": "crossmoda2022-2022",
       "link": "https://crossmoda2022.grand-challenge.org/crossmoda2022/",
@@ -16391,166 +16280,6 @@
       "data_volume_test": 23,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'3D-MR':30}\", 'train': '7', 'val': '', 'test': '23', 'label': ''}"
-    },
-    {
-      "name": "ISIC16",
-      "slug": "isic16-2016",
-      "link": "https://challenge.isic-archive.com/landing/2016/",
-      "organization": "International Skin Imaging Collaboration",
-      "challenge_series": "ISBI",
-      "license": "CC-BY-NC",
-      "release_date": "2016-01",
-      "year": 2016,
-      "dimension": "2D",
-      "modality": [
-        "Dermoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Skin",
-      "images_valid": 1279,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": "skin cancer",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 1279,
-      "data_volume_train": 900,
-      "data_volume_val": null,
-      "data_volume_test": 379,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Dermoscopy':1279}\", 'train': '900', 'val': '', 'test': '379', 'label': ''}"
-    },
-    {
-      "name": "ISIC17",
-      "slug": "isic17-2016",
-      "link": "https://challenge.isic-archive.com/landing/2017/",
-      "organization": "International Skin Imaging Collaboration",
-      "challenge_series": "ISBI",
-      "license": "CC-BY-NC",
-      "release_date": "2016-12",
-      "year": 2016,
-      "dimension": "2D",
-      "modality": [
-        "Dermoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation",
-        "Classification",
-        "Localization"
-      ],
-      "organ": "Skin",
-      "images_valid": 2750,
-      "has_labels": true,
-      "num_classes": 3,
-      "tumor": "skin cancer",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 2750,
-      "data_volume_train": 2000,
-      "data_volume_val": 150,
-      "data_volume_test": 600,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Dermoscopy':2750}\", 'train': '2000', 'val': '150', 'test': '600', 'label': ''}"
-    },
-    {
-      "name": "ISIC18",
-      "slug": "isic18-2018",
-      "link": "https://workshop2018.isic-archive.com/",
-      "organization": "International Skin Imaging Collaboration",
-      "challenge_series": "MICCAI",
-      "license": "CC-BY-NC",
-      "release_date": "2018-04",
-      "year": 2018,
-      "dimension": "2D",
-      "modality": [
-        "Dermoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation",
-        "Classification"
-      ],
-      "organ": "Skin",
-      "images_valid": 2694,
-      "has_labels": true,
-      "num_classes": 7,
-      "tumor": "skin cancer",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 3694,
-      "data_volume_train": 2594,
-      "data_volume_val": 100,
-      "data_volume_test": 1000,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Dermoscopy':3694}\", 'train': '2594', 'val': '100', 'test': '1000', 'label': ''}"
-    },
-    {
-      "name": "ISIC19",
-      "slug": "isic19-2019",
-      "link": "https://challenge2019.isic-archive.com/",
-      "organization": "International Skin Imaging Collaboration",
-      "challenge_series": "MICCAI",
-      "license": "CC-BY-NC",
-      "release_date": "2019-04",
-      "year": 2019,
-      "dimension": "2D",
-      "modality": [
-        "Dermoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Skin",
-      "images_valid": 25331,
-      "has_labels": true,
-      "num_classes": 9,
-      "tumor": "skin cancer",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 33569,
-      "data_volume_train": 25331,
-      "data_volume_val": null,
-      "data_volume_test": 8238,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Dermoscopy':33569}\", 'train': '25331', 'val': '', 'test': '8238', 'label': ''}"
-    },
-    {
-      "name": "RIADD (RFMiD)",
-      "slug": "riadd-rfmid-2020",
-      "link": "https://riadd.grand-challenge.org/",
-      "organization": "SGGSIE&T Nanded",
-      "challenge_series": "ISBI",
-      "license": "CC-BY-4.0",
-      "release_date": "2020-11",
-      "year": 2020,
-      "dimension": "2D",
-      "modality": [
-        "Fundus"
-      ],
-      "modality_secondary": [
-        "Cfp"
-      ],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Retina",
-      "images_valid": 3200,
-      "has_labels": true,
-      "num_classes": 46,
-      "tumor": "retinal disease",
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 3200,
-      "data_volume_train": 1920,
-      "data_volume_val": 640,
-      "data_volume_test": 640,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Fundus Photography':3200}\", 'train': '1920', 'val': '640', 'test': '640', 'label': ''}"
     },
     {
       "name": "HyperKvasir",
@@ -16784,107 +16513,6 @@
       "data_volume_raw": "{'total': \"{'2D-Microscopy Images': 93}\", 'train': '69', 'val': '0', 'test': '24', 'label': ''}"
     },
     {
-      "name": "iChallenge-ADAM",
-      "slug": "ichallenge-adam-2020",
-      "link": "https://amd.grand-challenge.org/",
-      "organization": "Baidu Inc",
-      "challenge_series": "ISBI",
-      "license": "CC-BY-NC",
-      "release_date": "2020-10",
-      "year": 2020,
-      "dimension": "2D",
-      "modality": [
-        "Fundus"
-      ],
-      "modality_secondary": [
-        "Cfp"
-      ],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Retina",
-      "images_valid": 400,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": "AMD",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 400,
-      "data_volume_train": 400,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Fundus Photography':400}\", 'train': '400', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "CoNIC2022",
-      "slug": "conic2022-2022",
-      "link": "https://conic-challenge.grand-challenge.org/",
-      "organization": "University of Warwick",
-      "challenge_series": "ISBI",
-      "license": "CC-BY-4.0",
-      "release_date": "2022-11",
-      "year": 2022,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [
-        "He"
-      ],
-      "task": [
-        "Segmentation",
-        "Classification"
-      ],
-      "organ": null,
-      "images_valid": 4981,
-      "has_labels": true,
-      "num_classes": 6,
-      "tumor": "colorectal cancer",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 4981,
-      "data_volume_train": 4981,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Histopathology':4981}\", 'train': '4981', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "DigestPath19",
-      "slug": "digestpath19-2019",
-      "link": "https://digestpath2019.grand-challenge.org/Home/",
-      "organization": "SenseTime",
-      "challenge_series": "MICCAI",
-      "license": "CC-BY-NC",
-      "release_date": "2019-06",
-      "year": 2019,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [
-        "He"
-      ],
-      "task": [
-        "Segmentation",
-        "Classification"
-      ],
-      "organ": "Colon",
-      "images_valid": 212,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": "colorectal cancer",
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 682,
-      "data_volume_train": 455,
-      "data_volume_val": null,
-      "data_volume_test": 227,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-whole-slide images':682}\", 'train': '455', 'val': '', 'test': '227', 'label': ''}"
-    },
-    {
       "name": "CliCR",
       "slug": "clicr-2018",
       "link": "https://github.com/clips/clicr",
@@ -16914,40 +16542,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'text-Others':100000}\", 'train': '', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "IDRID2018",
-      "slug": "idrid2018-2018",
-      "link": "https://idrid.grand-challenge.org/",
-      "organization": "Indian Institute of Technology",
-      "challenge_series": "ISBI",
-      "license": "CC-BY-NC",
-      "release_date": "2018-01",
-      "year": 2018,
-      "dimension": "2D",
-      "modality": [
-        "Fundus"
-      ],
-      "modality_secondary": [
-        "Cfp"
-      ],
-      "task": [
-        "Classification",
-        "Segmentation"
-      ],
-      "organ": "Retina",
-      "images_valid": 81,
-      "has_labels": true,
-      "num_classes": 5,
-      "tumor": "diabetic retinopathy",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 81,
-      "data_volume_train": 54,
-      "data_volume_val": null,
-      "data_volume_test": 27,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Fundus Photography':81}\", 'train': '54', 'val': '', 'test': '27', 'label': ''}"
     },
     {
       "name": "iChallenge-REFUGE2",
@@ -16981,70 +16575,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'2D-Fundus Photography':2000}\", 'train': '1200', 'val': '400', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "iChallenge - AGE19",
-      "slug": "ichallenge-age19-2019",
-      "link": "https://age.grand-challenge.org/",
-      "organization": "Beijing Institute of Ophthalmology",
-      "challenge_series": "MICCAI",
-      "license": "CC-BY-NC",
-      "release_date": "2019-07",
-      "year": 2019,
-      "dimension": "2D",
-      "modality": [
-        "OCT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Regression"
-      ],
-      "organ": "Retina",
-      "images_valid": 1600,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": "glaucoma",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 3200,
-      "data_volume_train": 1600,
-      "data_volume_val": null,
-      "data_volume_test": 1600,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-OCT':3200}\", 'train': '1600', 'val': '', 'test': '1600', 'label': ''}"
-    },
-    {
-      "name": "Gleason",
-      "slug": "gleason-2019",
-      "link": "https://gleason2019.grand-challenge.org/Home/",
-      "organization": "University of British Columbia",
-      "challenge_series": "MICCAI",
-      "license": "CC-BY-NC",
-      "release_date": "2019-03",
-      "year": 2019,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [
-        "He"
-      ],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Prostate",
-      "images_valid": 331,
-      "has_labels": true,
-      "num_classes": 5,
-      "tumor": "prostate cancer",
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 331,
-      "data_volume_train": 244,
-      "data_volume_val": null,
-      "data_volume_test": 87,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Histopathology':331}\", 'train': '244', 'val': '', 'test': '87', 'label': ''}"
     },
     {
       "name": "MeQSum",
@@ -17883,39 +17413,6 @@
       "data_volume_raw": "{'total': '', 'train': '80', 'val': '10', 'test': '30', 'label': ''}"
     },
     {
-      "name": "COV19-CT-DB",
-      "slug": "cov19-ct-db-2022",
-      "link": "https://mlearn.lincoln.ac.uk/eccv-2022-ai-mia/",
-      "organization": "National Technical University of Athens",
-      "challenge_series": "ECCV 2022",
-      "license": "Academic use",
-      "release_date": "2022-05",
-      "year": 2022,
-      "dimension": "3D",
-      "modality": [
-        "CT"
-      ],
-      "modality_secondary": [
-        "CT"
-      ],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Lung",
-      "images_valid": 52,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": "COVID-19",
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 52,
-      "data_volume_train": 30,
-      "data_volume_val": 8,
-      "data_volume_test": 14,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT':52}\", 'train': '30', 'val': '8', 'test': '14', 'label': ''}"
-    },
-    {
       "name": "Cephalometric X-ray Image",
       "slug": "cephalometric-x-ray-image-2014",
       "link": "https://opendatalab.org.cn/Cephalometric_X-ray_Image",
@@ -18048,40 +17545,6 @@
       "data_volume_raw": "{'total': \"{'2D-Histopathology':213}\", 'train': '173', 'val': '40', 'test': '', 'label': ''}"
     },
     {
-      "name": "CellTracking2019",
-      "slug": "celltracking2019-2019",
-      "link": "http://celltrackingchallenge.net/",
-      "organization": "ISBI",
-      "challenge_series": "ISBI2019",
-      "license": null,
-      "release_date": "2019",
-      "year": 2019,
-      "dimension": "2D, video",
-      "modality": [
-        "Microscopy"
-      ],
-      "modality_secondary": [
-        "Fluorescence"
-      ],
-      "task": [
-        "Segmentation",
-        "Tracking"
-      ],
-      "organ": "Cell",
-      "images_valid": 1442127,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 16042,
-      "data_volume_train": 7932,
-      "data_volume_val": null,
-      "data_volume_test": 8110,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Microscopy Images':16042}\", 'train': '7932', 'val': '', 'test': '8110', 'label': ''}"
-    },
-    {
       "name": "Brain CT Images with Intracranial Hemorrhage Masks",
       "slug": "brain-ct-images-with-intracranial-hemorrhage-masks-2019",
       "link": "https://www.kaggle.com/datasets/vbookshelf/computed-tomography-ct-images",
@@ -18147,71 +17610,6 @@
       "data_volume_test": 4,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'3D-MR':14}\", 'train': '10', 'val': '', 'test': '4', 'label': ''}"
-    },
-    {
-      "name": "ImageCLEF 2017",
-      "slug": "imageclef-2017-2017",
-      "link": "https://www.imageclef.org/2017/tuberculosis",
-      "organization": "ImageCLEF",
-      "challenge_series": null,
-      "license": "pubilc",
-      "release_date": "2017-02",
-      "year": 2017,
-      "dimension": "3D",
-      "modality": [
-        "CT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification",
-        "Retrieval"
-      ],
-      "organ": "Lung",
-      "images_valid": 444,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "tuberculosis",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 444,
-      "data_volume_train": 230,
-      "data_volume_val": null,
-      "data_volume_test": 214,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT':444}\", 'train': '230', 'val': '', 'test': '214', 'label': ''}"
-    },
-    {
-      "name": "ImageCLEF 2018",
-      "slug": "imageclef-2018-2018",
-      "link": "https://www.imageclef.org/2018/tuberculosis",
-      "organization": "ImageCLEF",
-      "challenge_series": null,
-      "license": "No commercial use",
-      "release_date": "2018-02",
-      "year": 2018,
-      "dimension": "3D",
-      "modality": [
-        "CT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification",
-        "Vqa",
-        "Retrieval"
-      ],
-      "organ": "Lung",
-      "images_valid": 495,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "tuberculosis",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 495,
-      "data_volume_train": 259,
-      "data_volume_val": null,
-      "data_volume_test": 236,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT':495}\", 'train': '259', 'val': '', 'test': '236', 'label': ''}"
     },
     {
       "name": "Placenta",
@@ -18280,108 +17678,6 @@
       "data_volume_raw": "{'total': \"{'2D-Histopathology':6160}\", 'train': '4021', 'val': '', 'test': '2139', 'label': ''}"
     },
     {
-      "name": "AMOS22",
-      "slug": "amos22-2022",
-      "link": "https://amos22.grand-challenge.org/",
-      "organization": "AMOS",
-      "challenge_series": "MICCAI2022, Grand Challenge",
-      "license": null,
-      "release_date": "2022-05",
-      "year": 2022,
-      "dimension": "3D",
-      "modality": [
-        "CT",
-        "MR"
-      ],
-      "modality_secondary": [
-        "CT",
-        "MR"
-      ],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Liver, Kidney, Pancreas, Spleen, Colon",
-      "images_valid": 200,
-      "has_labels": true,
-      "num_classes": 15,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 500,
-      "data_volume_train": 200,
-      "data_volume_val": 100,
-      "data_volume_test": 200,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT':500}\", 'train': '200', 'val': '100', 'test': '200', 'label': ''}"
-    },
-    {
-      "name": "BTCV",
-      "slug": "btcv-2018",
-      "link": "https://www.synapse.org/#!Synapse:syn3193805/wiki/217752",
-      "organization": "Vanderbilt University",
-      "challenge_series": null,
-      "license": "CC BY 4.0",
-      "release_date": "2018-07",
-      "year": 2018,
-      "dimension": "3D",
-      "modality": [
-        "CT"
-      ],
-      "modality_secondary": [
-        "CT"
-      ],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Liver, Kidney, Pancreas, Spleen, Colon",
-      "images_valid": 30,
-      "has_labels": true,
-      "num_classes": 13,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 50,
-      "data_volume_train": 30,
-      "data_volume_val": null,
-      "data_volume_test": 20,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT':50}\", 'train': '30', 'val': '', 'test': '20', 'label': ''}"
-    },
-    {
-      "name": "KNIGHT",
-      "slug": "knight-2021",
-      "link": "https://research.ibm.com/haifa/Workshops/KNIGHT/",
-      "organization": "IBM Research",
-      "challenge_series": "ISBI2022",
-      "license": "IBM",
-      "release_date": "2021-11",
-      "year": 2021,
-      "dimension": "3D",
-      "modality": [
-        "CT"
-      ],
-      "modality_secondary": [
-        "CT"
-      ],
-      "task": [
-        "Classification",
-        "Segmentation"
-      ],
-      "organ": "Kidney",
-      "images_valid": 400,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 400,
-      "data_volume_train": 300,
-      "data_volume_val": null,
-      "data_volume_test": 100,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT':400}\", 'train': '300', 'val': '', 'test': '100', 'label': ''}"
-    },
-    {
       "name": "PDDCA",
       "slug": "pddca-2016",
       "link": "https://www.imagenglab.com/newsite/pddca/",
@@ -18413,39 +17709,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'3D-CT': 48}\", 'train': '48', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "Learn2Reg2022",
-      "slug": "learn2reg2022-2022",
-      "link": "https://learn2reg.grand-challenge.org/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2022",
-      "license": "pubilc",
-      "release_date": "2022-05",
-      "year": 2022,
-      "dimension": "3D",
-      "modality": [
-        "CT"
-      ],
-      "modality_secondary": [
-        "CT"
-      ],
-      "task": [
-        "Registration"
-      ],
-      "organ": "Lung",
-      "images_valid": 280,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 280,
-      "data_volume_train": 220,
-      "data_volume_val": null,
-      "data_volume_test": 60,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT':280}\", 'train': '220', 'val': '', 'test': '60', 'label': ''}"
     },
     {
       "name": "OLIVES",
@@ -18510,39 +17773,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'3D-CT': 47}\", 'train': '', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "Learn2Reg2022",
-      "slug": "learn2reg2022-2022",
-      "link": "https://learn2reg.grand-challenge.org/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2022",
-      "license": "pubilc",
-      "release_date": "2022-05",
-      "year": 2022,
-      "dimension": "3D",
-      "modality": [
-        "CT"
-      ],
-      "modality_secondary": [
-        "CT"
-      ],
-      "task": [
-        "Detection"
-      ],
-      "organ": "Lung",
-      "images_valid": 280,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 280,
-      "data_volume_train": 220,
-      "data_volume_val": null,
-      "data_volume_test": 60,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT':280}\", 'train': '220', 'val': '', 'test': '60', 'label': ''}"
     },
     {
       "name": "CMB-CRC",
@@ -18613,68 +17843,6 @@
       "data_volume_raw": "{'total': \"{'3D-MR':3820}\", 'train': '3820', 'val': '', 'test': '', 'label': ''}"
     },
     {
-      "name": "MUDI2019",
-      "slug": "mudi2019-2019",
-      "link": "http://cmic.cs.ucl.ac.uk/cdmri19/challenge.html",
-      "organization": "University College London",
-      "challenge_series": "MICCAI2019",
-      "license": "No commercial use",
-      "release_date": "2019-06",
-      "year": 2019,
-      "dimension": "3D",
-      "modality": [
-        "MR"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Uterus",
-      "images_valid": 8,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 23,
-      "data_volume_train": 23,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-MR':23}\", 'train': '23', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "NODE21",
-      "slug": "node21-2021",
-      "link": "https://node21.grand-challenge.org/",
-      "organization": "Radboud University",
-      "challenge_series": "MICCAI2021, Grand Challenge",
-      "license": null,
-      "release_date": "2021-10",
-      "year": 2021,
-      "dimension": "2D",
-      "modality": [
-        "X-Ray"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Lung Nodule",
-      "images_valid": 5461,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": "lung nodule",
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 5461,
-      "data_volume_train": 4882,
-      "data_volume_val": 298,
-      "data_volume_test": 281,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-X_Ray': 5461}\", 'train': '4882', 'val': '298', 'test': '281', 'label': ''}"
-    },
-    {
       "name": "OpenKBP",
       "slug": "openkbp-2020",
       "link": "https://www.aapm.org/GrandChallenge/OpenKBP/",
@@ -18737,69 +17905,6 @@
       "data_volume_raw": "{'total': \"{'3D-MR':955}\", 'train': '655', 'val': '', 'test': '300', 'label': ''}"
     },
     {
-      "name": "BraTS 2021",
-      "slug": "brats-2021-2021",
-      "link": "https://www.med.upenn.edu/cbica/brats2021/",
-      "organization": "University of Pennsylvania",
-      "challenge_series": "MICCAI2021",
-      "license": "free",
-      "release_date": "2021-07",
-      "year": 2021,
-      "dimension": "3D",
-      "modality": [
-        "MR"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Brain",
-      "images_valid": 1251,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": "brain tumor",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 1470,
-      "data_volume_train": 5004,
-      "data_volume_val": null,
-      "data_volume_test": 876,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-MR':1470}\", 'train': '5004', 'val': '', 'test': '876', 'label': ''}"
-    },
-    {
-      "name": "CMRxMotion",
-      "slug": "cmrxmotion-2022",
-      "link": "http://cmr.miccai.cloud/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2022",
-      "license": null,
-      "release_date": "2022-05",
-      "year": 2022,
-      "dimension": "3D",
-      "modality": [
-        "MR"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation",
-        "Classification"
-      ],
-      "organ": "Brain",
-      "images_valid": 160,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 360,
-      "data_volume_train": 160,
-      "data_volume_val": 40,
-      "data_volume_test": 160,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-MR':360}\", 'train': '160', 'val': '40', 'test': '160', 'label': ''}"
-    },
-    {
       "name": "CuRIOUS2019-MR_FLAIR",
       "slug": "curious2019-mr_flair-2019",
       "link": "https://curious2019.grand-challenge.org/Home/",
@@ -18831,37 +17936,6 @@
       "data_volume_raw": "{'total': \"{'3D-MR_FLAIR': 23}\", 'train': '22', 'val': '', 'test': '', 'label': ''}"
     },
     {
-      "name": "2013 Fang",
-      "slug": "2013-fang-2013",
-      "link": "https://people.duke.edu/~sf59/Fang_TMI_2013.htm",
-      "organization": "MICCAI",
-      "challenge_series": null,
-      "license": null,
-      "release_date": "2013-11",
-      "year": 2013,
-      "dimension": "3D",
-      "modality": [
-        "OCT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Registration"
-      ],
-      "organ": "Brain",
-      "images_valid": 195,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "medium",
-      "impact": "low",
-      "data_volume_total": 100,
-      "data_volume_train": 10,
-      "data_volume_val": null,
-      "data_volume_test": 90,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-OCT':100}\", 'train': '10', 'val': '', 'test': '90', 'label': ''}"
-    },
-    {
       "name": "Continuous Registration_DIRLAB",
       "slug": "continuous-registration_dirlab-2018",
       "link": "https://continuousregistration.grand-challenge.org/home/",
@@ -18891,37 +17965,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'3D-CT':20}\", 'train': '', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "Eye OCT Datasets",
-      "slug": "eye-oct-datasets-2020",
-      "link": "https://tianchi.aliyun.com/dataset/dataDetail?dataId=90672",
-      "organization": null,
-      "challenge_series": "Tianchi",
-      "license": "CC BY-NC-SA 4.0",
-      "release_date": "2020-02",
-      "year": 2020,
-      "dimension": "2D",
-      "modality": [
-        "OCT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Retina",
-      "images_valid": 14,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "diabetic retinopathy",
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 14,
-      "data_volume_train": null,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-OCT':14}\", 'train': '', 'val': '', 'test': '', 'label': ''}"
     },
     {
       "name": "CMB-GEC",
@@ -19282,68 +18325,6 @@
       "data_volume_raw": "{'total': \"{'2D-Histopathology':150}\", 'train': '105', 'val': '', 'test': '45', 'label': ''}"
     },
     {
-      "name": "AGGC22",
-      "slug": "aggc22-2022",
-      "link": "https://aggc22.grand-challenge.org/",
-      "organization": null,
-      "challenge_series": "MICCAI2022, Grand Challenge",
-      "license": "CC BY-NC-SA 4.0",
-      "release_date": "2022-04",
-      "year": 2022,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 150,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": null,
-      "impact": null,
-      "data_volume_total": 150,
-      "data_volume_train": 105,
-      "data_volume_val": null,
-      "data_volume_test": 45,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Histopathology':150}\", 'train': '105', 'val': '', 'test': '45', 'label': ''}"
-    },
-    {
-      "name": "FetReg",
-      "slug": "fetreg-2022",
-      "link": "https://www.synapse.org/#!Synapse:syn25313156/wiki/610166",
-      "organization": null,
-      "challenge_series": "MICCAI2021",
-      "license": "CC BY 4.0",
-      "release_date": "2022-06",
-      "year": 2022,
-      "dimension": "2D",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Uterus (Pelvis)",
-      "images_valid": 2718,
-      "has_labels": true,
-      "num_classes": 4,
-      "tumor": "Placental Vasculature",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 2718,
-      "data_volume_train": 2060,
-      "data_volume_val": null,
-      "data_volume_test": 658,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Endoscopy':2718}\", 'train': '2060', 'val': '', 'test': '658', 'label': ''}"
-    },
-    {
       "name": "Gastrointestinal Image ANAlysis (GIANA)",
       "slug": "gastrointestinal-image-analysis-giana-2016",
       "link": "Gastrointestinal Image ANAlysis (GIANA)-Angiodysplasia detection",
@@ -19373,37 +18354,6 @@
       "data_volume_test": 600,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'2D-Endoscopy':1200}\", 'train': '600', 'val': '', 'test': '600', 'label': ''}"
-    },
-    {
-      "name": "TDSC-ABUS2023",
-      "slug": "tdsc-abus2023-2023",
-      "link": "https://tdsc-abus2023.grand-challenge.org/",
-      "organization": null,
-      "challenge_series": "MICCAI2023, Grand Challenge",
-      "license": "CC BY-NC-ND 6.0",
-      "release_date": "2023-04",
-      "year": 2023,
-      "dimension": "3D",
-      "modality": [
-        "Ultrasound"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Breast (Thorax)",
-      "images_valid": 200,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": "Breast Neoplasm",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 200,
-      "data_volume_train": 100,
-      "data_volume_val": 30,
-      "data_volume_test": 70,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-Ultrasound':200}\", 'train': '100', 'val': '30', 'test': '70', 'label': ''}"
     },
     {
       "name": "TUPAC",
@@ -19437,37 +18387,6 @@
       "data_volume_raw": "{'total': \"{'2D-Histopathology':894}\", 'train': '573', 'val': '', 'test': '321', 'label': ''}"
     },
     {
-      "name": "TUPAC",
-      "slug": "tupac-2015",
-      "link": "https://tupac.grand-challenge.org/TUPAC/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2016, Grand Challenge",
-      "license": null,
-      "release_date": "2015下半年",
-      "year": 2015,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Regression"
-      ],
-      "organ": "Brain",
-      "images_valid": 573,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": "Breast Neoplasm",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 894,
-      "data_volume_train": 573,
-      "data_volume_val": null,
-      "data_volume_test": 321,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Histopathology':894}\", 'train': '573', 'val': '', 'test': '321', 'label': ''}"
-    },
-    {
       "name": "GAMMA",
       "slug": "gamma-2021",
       "link": "https://gamma.grand-challenge.org/",
@@ -19489,37 +18408,6 @@
       "has_labels": true,
       "num_classes": null,
       "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 400,
-      "data_volume_train": 100,
-      "data_volume_val": null,
-      "data_volume_test": 100,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-Fundus Photography':200, '2D-Fundus Photography':200}\", 'train': '100', 'val': '', 'test': '100', 'label': ''}"
-    },
-    {
-      "name": "GAMMA",
-      "slug": "gamma-2021",
-      "link": "https://gamma.grand-challenge.org/",
-      "organization": null,
-      "challenge_series": "MICCAI2021, Grand Challenge",
-      "license": null,
-      "release_date": "2021-06",
-      "year": 2021,
-      "dimension": "2D, 3D",
-      "modality": [
-        "Fundus"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Retina",
-      "images_valid": 200,
-      "has_labels": true,
-      "num_classes": 3,
-      "tumor": "Glaucoma",
       "quality_flag": "high",
       "impact": "high",
       "data_volume_total": 400,
@@ -19583,68 +18471,6 @@
       "num_classes": null,
       "tumor": null,
       "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 58,
-      "data_volume_train": null,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Fundus Photography':58}\", 'train': '', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "VARPA images for the computation of the arterio/venular ratio",
-      "slug": "varpa-images-for-the-computation-of-the-arteriovenular-ratio-2019",
-      "link": "http://www.varpa.es/research/ophtalmology.html",
-      "organization": null,
-      "challenge_series": null,
-      "license": null,
-      "release_date": "2019",
-      "year": 2019,
-      "dimension": "2D",
-      "modality": [
-        "Fundus"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Retina",
-      "images_valid": 58,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 58,
-      "data_volume_train": null,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Fundus Photography':58}\", 'train': '', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "VARPA images for the computation of the arterio/venular ratio",
-      "slug": "varpa-images-for-the-computation-of-the-arteriovenular-ratio-2019",
-      "link": "http://www.varpa.es/research/ophtalmology.html",
-      "organization": null,
-      "challenge_series": null,
-      "license": null,
-      "release_date": "2019",
-      "year": 2019,
-      "dimension": "2D",
-      "modality": [
-        "Fundus"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Retina",
-      "images_valid": 58,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": null,
-      "quality_flag": "high",
       "impact": "medium",
       "data_volume_total": 58,
       "data_volume_train": null,
@@ -20025,37 +18851,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": "{'total': '', 'train': '', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "CellTracking2019",
-      "slug": "celltracking2019-2019",
-      "link": "http://celltrackingchallenge.net/",
-      "organization": null,
-      "challenge_series": "ISBI2019",
-      "license": null,
-      "release_date": "2019",
-      "year": 2019,
-      "dimension": "2D, video",
-      "modality": [
-        "Microscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Tracking"
-      ],
-      "organ": "NA (Cell)",
-      "images_valid": 1442127,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 16042,
-      "data_volume_train": 7932,
-      "data_volume_val": null,
-      "data_volume_test": 8110,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Microscopy Images':16042}\", 'train': '7932', 'val': '', 'test': '8110', 'label': ''}"
     },
     {
       "name": "PDMR-BL0293-F563",
@@ -20791,68 +19586,6 @@
       "data_volume_raw": "{'total': \"{'2D-X_Ray': 662}\", 'train': '566', 'val': '', 'test': '', 'label': ''}"
     },
     {
-      "name": "CLUST15",
-      "slug": "clust15-2015",
-      "link": "https://clust.ethz.ch/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2015",
-      "license": null,
-      "release_date": "2015",
-      "year": 2015,
-      "dimension": "video",
-      "modality": [
-        "Ultrasound"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Tracking"
-      ],
-      "organ": "Liver (Abdomen)",
-      "images_valid": 34,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": null,
-      "impact": null,
-      "data_volume_total": 86,
-      "data_volume_train": 78434,
-      "data_volume_val": null,
-      "data_volume_test": 174011,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'Video-Ultrasound':86}\", 'train': '78434', 'val': '', 'test': '174011', 'label': ''}"
-    },
-    {
-      "name": "PH2",
-      "slug": "ph2-2014",
-      "link": "https://www.fc.up.pt/addi/ph2%20database.html",
-      "organization": "CVPR",
-      "challenge_series": "CVPR2021",
-      "license": "No commercial use, no redistribution",
-      "release_date": "2014-08",
-      "year": 2014,
-      "dimension": "2D",
-      "modality": [
-        "Dermoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Skin (Skin)",
-      "images_valid": 200,
-      "has_labels": true,
-      "num_classes": 3,
-      "tumor": "Melanoma",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 200,
-      "data_volume_train": 200,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Dermoscopy':200}\", 'train': '200', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
       "name": "TIGER-wsirois",
       "slug": "tiger-wsirois-2022",
       "link": "https://tiger.grand-challenge.org/Home/",
@@ -20917,254 +19650,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'2D-whole-slide images':82}\", 'train': '82', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "OLIVES",
-      "slug": "olives-2022",
-      "link": "https://github.com/olivesgatech/OLIVES_Dataset",
-      "organization": "佐治亚理工学院",
-      "challenge_series": null,
-      "license": "MIT",
-      "release_date": "2022-06",
-      "year": 2022,
-      "dimension": "3D",
-      "modality": [
-        "OCT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Retina",
-      "images_valid": 78189,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": "Diabetic Retinopathy",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 78189,
-      "data_volume_train": 78189,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-OCT': 78189}\", 'train': '78189', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "JSRT",
-      "slug": "jsrt-2000",
-      "link": "http://db.jsrt.or.jp/eng.php",
-      "organization": null,
-      "challenge_series": null,
-      "license": null,
-      "release_date": "2000",
-      "year": 2000,
-      "dimension": "2D",
-      "modality": [
-        "X-Ray"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Lung (Thorax)",
-      "images_valid": 247,
-      "has_labels": true,
-      "num_classes": 1,
-      "tumor": "Pneumonia",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 247,
-      "data_volume_train": 237,
-      "data_volume_val": null,
-      "data_volume_test": 10,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-X_Ray': 247}\", 'train': '237', 'val': 'No', 'test': '10', 'label': ''}"
-    },
-    {
-      "name": "JSRT",
-      "slug": "jsrt-2000",
-      "link": "http://db.jsrt.or.jp/eng.php",
-      "organization": null,
-      "challenge_series": null,
-      "license": null,
-      "release_date": "2000",
-      "year": 2000,
-      "dimension": "2D",
-      "modality": [
-        "X-Ray"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Lung (Thorax)",
-      "images_valid": 247,
-      "has_labels": true,
-      "num_classes": 1,
-      "tumor": "Pneumonia",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 247,
-      "data_volume_train": 237,
-      "data_volume_val": null,
-      "data_volume_test": 10,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-X_Ray': 247}\", 'train': '237', 'val': 'No', 'test': '10', 'label': ''}"
-    },
-    {
-      "name": "JSRT",
-      "slug": "jsrt-2000",
-      "link": "http://db.jsrt.or.jp/eng.php",
-      "organization": null,
-      "challenge_series": null,
-      "license": null,
-      "release_date": "2000",
-      "year": 2000,
-      "dimension": "2D",
-      "modality": [
-        "X-Ray"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Lung (Thorax)",
-      "images_valid": 247,
-      "has_labels": true,
-      "num_classes": 4,
-      "tumor": "Pulmonary Nodule",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 247,
-      "data_volume_train": 237,
-      "data_volume_val": null,
-      "data_volume_test": 10,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-X_Ray': 247}\", 'train': '237', 'val': 'No', 'test': '10', 'label': ''}"
-    },
-    {
-      "name": "JSRT",
-      "slug": "jsrt-2000",
-      "link": "http://db.jsrt.or.jp/eng.php",
-      "organization": null,
-      "challenge_series": null,
-      "license": null,
-      "release_date": "2000",
-      "year": 2000,
-      "dimension": "2D",
-      "modality": [
-        "X-Ray"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Lung (Thorax)",
-      "images_valid": 247,
-      "has_labels": true,
-      "num_classes": 4,
-      "tumor": "Pulmonary Nodule",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 247,
-      "data_volume_train": 237,
-      "data_volume_val": null,
-      "data_volume_test": 10,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-X_Ray': 247}\", 'train': '237', 'val': 'No', 'test': '10', 'label': ''}"
-    },
-    {
-      "name": "JSRT",
-      "slug": "jsrt-2000",
-      "link": "http://db.jsrt.or.jp/eng.php",
-      "organization": null,
-      "challenge_series": null,
-      "license": null,
-      "release_date": "2000",
-      "year": 2000,
-      "dimension": "2D",
-      "modality": [
-        "X-Ray"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Lung (Thorax)",
-      "images_valid": 247,
-      "has_labels": true,
-      "num_classes": 4,
-      "tumor": "Pulmonary Nodule",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 247,
-      "data_volume_train": 237,
-      "data_volume_val": null,
-      "data_volume_test": 10,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-X_Ray': 247}\", 'train': '237', 'val': 'No', 'test': '10', 'label': ''}"
-    },
-    {
-      "name": "JSRT",
-      "slug": "jsrt-2000",
-      "link": "http://db.jsrt.or.jp/eng.php",
-      "organization": null,
-      "challenge_series": null,
-      "license": null,
-      "release_date": "2000",
-      "year": 2000,
-      "dimension": "2D",
-      "modality": [
-        "X-Ray"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Lung (Thorax)",
-      "images_valid": 247,
-      "has_labels": true,
-      "num_classes": 4,
-      "tumor": "Pulmonary Nodule",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 247,
-      "data_volume_train": 237,
-      "data_volume_val": null,
-      "data_volume_test": 10,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-X_Ray': 247}\", 'train': '237', 'val': 'No', 'test': '10', 'label': ''}"
-    },
-    {
-      "name": "JSRT",
-      "slug": "jsrt-2000",
-      "link": "http://db.jsrt.or.jp/eng.php",
-      "organization": null,
-      "challenge_series": null,
-      "license": null,
-      "release_date": "2000",
-      "year": 2000,
-      "dimension": "2D",
-      "modality": [
-        "X-Ray"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Lung (Thorax)",
-      "images_valid": 247,
-      "has_labels": true,
-      "num_classes": 4,
-      "tumor": "Pulmonary Nodule",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 247,
-      "data_volume_train": 237,
-      "data_volume_val": null,
-      "data_volume_test": 10,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-X_Ray': 247}\", 'train': '237', 'val': 'No', 'test': '10', 'label': ''}"
     },
     {
       "name": "TCGA-READ",
@@ -21436,103 +19921,6 @@
       "data_volume_raw": "{'total': \"{'2D-Endoscopy':150}\", 'train': '50', 'val': '', 'test': '100', 'label': ''}"
     },
     {
-      "name": "ISLES 2015",
-      "slug": "isles-2015-2015",
-      "link": "https://www.smir.ch/ISLES/Start2015",
-      "organization": "Institut: IMI - Universität zu LübeckInstitut: IMI - Universität zu Lübeck",
-      "challenge_series": "MICCAI2015",
-      "license": "ODbL",
-      "release_date": "2015-09",
-      "year": 2015,
-      "dimension": "3D",
-      "modality": [
-        "MR"
-      ],
-      "modality_secondary": [
-        "MR"
-      ],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Brain",
-      "images_valid": 64,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 38,
-      "data_volume_train": 28,
-      "data_volume_val": null,
-      "data_volume_test": 36,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-MR':38}\", 'train': '28', 'val': '', 'test': '36', 'label': ''}"
-    },
-    {
-      "name": "LAScarQS 2022",
-      "slug": "lascarqs-2022-2022",
-      "link": "https://zmiclab.github.io/projects/lascarqs22/",
-      "organization": "Fudan University",
-      "challenge_series": "MICCAI2022",
-      "license": "CC BY-NC-ND",
-      "release_date": "2022-09",
-      "year": 2022,
-      "dimension": "3D",
-      "modality": [
-        "MR"
-      ],
-      "modality_secondary": [
-        "Lge-Mri"
-      ],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Heart (Cardiac)",
-      "images_valid": 194,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 94,
-      "data_volume_train": 60,
-      "data_volume_val": null,
-      "data_volume_test": 34,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-MR':94}\", 'train': '60', 'val': '', 'test': '34', 'label': ''}"
-    },
-    {
-      "name": "StructSeg2019_subtask1",
-      "slug": "structseg2019_subtask1-2019",
-      "link": "https://structseg2019.grand-challenge.org/Home/",
-      "organization": "Sensetime/YINO/Zhejiang Cancer Hospital",
-      "challenge_series": "MICCAI2019, Grand Challenge",
-      "license": null,
-      "release_date": "2019-06",
-      "year": 2019,
-      "dimension": "3D",
-      "modality": [
-        "CT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Brain , Lung (Thorax)",
-      "images_valid": 100,
-      "has_labels": true,
-      "num_classes": 1,
-      "tumor": "Nasopharyngeal Carcinoma",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 50,
-      "data_volume_train": 50,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT':50}\", 'train': '50', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
       "name": "StructSeg2019_subtask2",
       "slug": "structseg2019_subtask2-2019",
       "link": "https://structseg2019.grand-challenge.org/Home/",
@@ -21564,101 +19952,6 @@
       "data_volume_raw": "{'total': \"{'3D-CT':50}\", 'train': '50', 'val': '', 'test': '', 'label': ''}"
     },
     {
-      "name": "EndoSlam",
-      "slug": "endoslam-2021",
-      "link": "https://github.com/CapsuleEndoscope/EndoSLAM",
-      "organization": "Institute of Biomedical Engineering, Bogazici University",
-      "challenge_series": null,
-      "license": null,
-      "release_date": "2021-07",
-      "year": 2021,
-      "dimension": "2D",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Reconstruction",
-        "Regression"
-      ],
-      "organ": "Colon (Abdomen), Liver (Abdomen), Stomach (Abdomen), Kidney (Abdomen)",
-      "images_valid": 76837,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 76837,
-      "data_volume_train": 76837,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Endoscopy':76837}\", 'train': '76837', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "EndoSlam",
-      "slug": "endoslam-2021",
-      "link": "https://github.com/CapsuleEndoscope/EndoSLAM",
-      "organization": "Institute of Biomedical Engineering, Bogazici University",
-      "challenge_series": null,
-      "license": null,
-      "release_date": "2021-07",
-      "year": 2021,
-      "dimension": "2D",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Reconstruction",
-        "Regression"
-      ],
-      "organ": "Colon (Abdomen), Liver (Abdomen), Stomach (Abdomen), Kidney (Abdomen)",
-      "images_valid": 76837,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 76837,
-      "data_volume_train": 76837,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Endoscopy':76837}\", 'train': '76837', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "EAD19",
-      "slug": "ead19-2018",
-      "link": "https://ead2019.grand-challenge.org/Data/",
-      "organization": null,
-      "challenge_series": "ISBI2019, Grand Challenge",
-      "license": null,
-      "release_date": "2018-12",
-      "year": 2018,
-      "dimension": "2D, video",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Detection"
-      ],
-      "organ": "Stomach (Abdomen), Bladder (Pelvic), Colon (Abdomen)",
-      "images_valid": 2147,
-      "has_labels": true,
-      "num_classes": 5,
-      "tumor": "Endoscopic Artifact",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 2500,
-      "data_volume_train": 2000,
-      "data_volume_val": null,
-      "data_volume_test": 500,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'Video-Endoscopy':2500}\", 'train': '2000', 'val': '', 'test': '500', 'label': ''}"
-    },
-    {
       "name": "EndoCV2020-Sub Challenge2",
       "slug": "endocv2020-sub-challenge2-2019",
       "link": "https://edd2020.grand-challenge.org/",
@@ -21688,99 +19981,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'2D-Endoscopy': 386}\", 'train': '386', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "EndoCV2020-Sub Challenge2",
-      "slug": "endocv2020-sub-challenge2-2019",
-      "link": "https://edd2020.grand-challenge.org/",
-      "organization": "Oxford biomedical research centre",
-      "challenge_series": "ISBI2020, Grand Challenge",
-      "license": "CC BY-NC 4.0",
-      "release_date": "2019-11",
-      "year": 2019,
-      "dimension": "2D",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Detection"
-      ],
-      "organ": null,
-      "images_valid": 386,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": null,
-      "impact": null,
-      "data_volume_total": 386,
-      "data_volume_train": 386,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Endoscopy': 386}\", 'train': '386', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "COVID-19-Image",
-      "slug": "covid-19-image-2020",
-      "link": "https://github.com/ieee8023/covid-chestxray-dataset",
-      "organization": null,
-      "challenge_series": null,
-      "license": "CC BY-NC-SA 4.0",
-      "release_date": "2020-10",
-      "year": 2020,
-      "dimension": "2D",
-      "modality": [
-        "X-Ray"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Lung (Thorax)",
-      "images_valid": 93,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 93,
-      "data_volume_train": 93,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-X_Ray':93}\", 'train': '93', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "COVID-19-Image",
-      "slug": "covid-19-image-2020",
-      "link": "https://github.com/ieee8023/covid-chestxray-dataset",
-      "organization": null,
-      "challenge_series": null,
-      "license": "CC BY-NC-SA 4.0",
-      "release_date": "2020-10",
-      "year": 2020,
-      "dimension": "2D",
-      "modality": [
-        "X-Ray"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Lung (Thorax)",
-      "images_valid": 93,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": "COVID-19",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 93,
-      "data_volume_train": 93,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-X_Ray':93}\", 'train': '93', 'val': '', 'test': '', 'label': ''}"
     },
     {
       "name": "iChallenge-GAMMA_3D-OCT",
@@ -23865,68 +22065,6 @@
       "data_volume_raw": "{'total': \"{'2D-Microscopy Images': 1540}\", 'train': '1540', 'val': '', 'test': '', 'label': ''}"
     },
     {
-      "name": "iChallenge-REFUGE2",
-      "slug": "ichallenge-refuge2-2020",
-      "link": "https://refuge.grand-challenge.org/",
-      "organization": "Baidu, Zhongshan Ophthalmic Center, Sun Yat-sen University, China",
-      "challenge_series": "Grand Challenge, MICCAI2020",
-      "license": "Only academic, no redistribution",
-      "release_date": "2020-03",
-      "year": 2020,
-      "dimension": "2D",
-      "modality": [
-        "Fundus"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Retina",
-      "images_valid": 1600,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 2000,
-      "data_volume_train": 2000,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Fundus Photography': 2000}\", 'train': '2000', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "NuCLS",
-      "slug": "nucls-2021",
-      "link": "https://nucls.grand-challenge.org/NuCLS/",
-      "organization": null,
-      "challenge_series": "Grand Challenge",
-      "license": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
-      "release_date": "2021-02",
-      "year": 2021,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "NA (Cell)",
-      "images_valid": 3083,
-      "has_labels": true,
-      "num_classes": 3,
-      "tumor": "breast",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 3083,
-      "data_volume_train": 3083,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Histopathology': 3083}\", 'train': '3083', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
       "name": "BCNB Task-2",
       "slug": "bcnb-task-2-2021",
       "link": "https://bcnb.grand-challenge.org/Home/",
@@ -24154,39 +22292,6 @@
       "data_volume_raw": "{'total': \"{'2D-X_Ray': 800}\", 'train': '800', 'val': '', 'test': '', 'label': ''}"
     },
     {
-      "name": "WSSS4LUAD",
-      "slug": "wsss4luad-2021",
-      "link": "https://wsss4luad.grand-challenge.org",
-      "organization": null,
-      "challenge_series": "Grand Challenge",
-      "license": "CC BY 4.0",
-      "release_date": "2021-07",
-      "year": 2021,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [
-        "Pathology/Histopathology"
-      ],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Lung (Thorax)",
-      "images_valid": 10211,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "lung",
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 10211,
-      "data_volume_train": 10211,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-whole-slide images': 10211}\", 'train': '10211', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
       "name": "MRL Eye Glasses cls",
       "slug": "mrl-eye-glasses-cls-2018",
       "link": "http://mrl.cs.vsb.cz/eyedataset",
@@ -24340,167 +22445,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'2D-Infrared Reflectance Imaging': 84898}\", 'train': '84898', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "TIGER-wsirois",
-      "slug": "tiger-wsirois-2022",
-      "link": "https://tiger.grand-challenge.org/Home/",
-      "organization": null,
-      "challenge_series": "MICCAI2022, Grand Challenge",
-      "license": "CC BY-NC 4.0",
-      "release_date": "2022-01",
-      "year": 2022,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [
-        "Pathology/Histopathology"
-      ],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 2032,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "colon",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 2032,
-      "data_volume_train": 2032,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-whole-slide images': 2032}\", 'train': '2032', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "TIGER-wsirois",
-      "slug": "tiger-wsirois-2022",
-      "link": "https://tiger.grand-challenge.org/Home/",
-      "organization": null,
-      "challenge_series": "MICCAI2022, Grand Challenge",
-      "license": "CC BY-NC 4.0",
-      "release_date": "2022-01",
-      "year": 2022,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [
-        "Pathology/Histopathology"
-      ],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 2032,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "colon",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 2032,
-      "data_volume_train": 2032,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-whole-slide images': 2032}\", 'train': '2032', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "DRISHTI-GS",
-      "slug": "drishti-gs-2014",
-      "link": "http://cvit.iiit.ac.in/projects/mip/drishti-gs/mip-dataset2/Home.php",
-      "organization": "IIIT",
-      "challenge_series": null,
-      "license": null,
-      "release_date": "2014",
-      "year": 2014,
-      "dimension": "2D",
-      "modality": [
-        "Fundus"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Retina",
-      "images_valid": 101,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 101,
-      "data_volume_train": 101,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Fundus Photography': 101}\", 'train': '101', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "TIGER-wsibulk",
-      "slug": "tiger-wsibulk-2022",
-      "link": "https://tiger.grand-challenge.org/Home/",
-      "organization": "Miccai",
-      "challenge_series": "MICCAI2022, Grand Challenge",
-      "license": "CC BY-NC 4.0",
-      "release_date": "2022-01",
-      "year": 2022,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [
-        "Pathology/Histopathology"
-      ],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Breast (Thorax)",
-      "images_valid": 93,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "colon",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 93,
-      "data_volume_train": 93,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-whole-slide images': 93}\", 'train': '93', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "ISIC16",
-      "slug": "isic16-2016",
-      "link": "https://challenge.isic-archive.com/landing/2016/",
-      "organization": "MICCAI",
-      "challenge_series": "ISIC2016, MICCAI2016",
-      "license": "CC0",
-      "release_date": "2016-01",
-      "year": 2016,
-      "dimension": "2D",
-      "modality": [
-        "Dermoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Skin (Skin)",
-      "images_valid": 1279,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "skin",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 1279,
-      "data_volume_train": 1279,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Dermoscopy': 1279}\", 'train': '1279', 'val': '', 'test': '', 'label': ''}"
     },
     {
       "name": "PANDA",
@@ -24692,38 +22636,6 @@
       "data_volume_raw": "{'total': \"{'3D-MR': 90}\", 'train': '90', 'val': '', 'test': '', 'label': ''}"
     },
     {
-      "name": "synthrad2023",
-      "slug": "synthrad2023-2023",
-      "link": "https://synthrad2023.grand-challenge.org/",
-      "organization": null,
-      "challenge_series": "MICCAI2023, Grand Challenge",
-      "license": null,
-      "release_date": "2023-04",
-      "year": 2023,
-      "dimension": "3D",
-      "modality": [
-        "CT",
-        "MR"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Visual Generation"
-      ],
-      "organ": null,
-      "images_valid": 540,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "brain",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 540,
-      "data_volume_train": 540,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-CT,MR': 540}\", 'train': '540', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
       "name": "KiTS2023",
       "slug": "kits2023-2023",
       "link": "https://kits-challenge.org/kits23/",
@@ -24851,39 +22763,6 @@
       "data_volume_raw": "{'total': \"{'3D-Electron Microscopy': 14}\", 'train': '14', 'val': '', 'test': '', 'label': ''}"
     },
     {
-      "name": "WASPSYN2023",
-      "slug": "waspsyn2023-2023",
-      "link": "https://pytorchconnectomics.github.io/WASPSYN23/",
-      "organization": null,
-      "challenge_series": "ISBI2023",
-      "license": null,
-      "release_date": "2023-01",
-      "year": 2023,
-      "dimension": "3D",
-      "modality": [
-        "Microscopy"
-      ],
-      "modality_secondary": [
-        "Microscopy"
-      ],
-      "task": [
-        "Detection"
-      ],
-      "organ": "Brain",
-      "images_valid": 14,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 14,
-      "data_volume_train": 14,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-Electron Microscopy': 14}\", 'train': '14', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
       "name": "ISBI2023 challenge - edited-mrs-rec-challenge",
       "slug": "isbi2023-challenge-edited-mrs-rec-challenge-2022",
       "link": "https://sites.google.com/view/edited-mrs-rec-challenge/home",
@@ -24915,37 +22794,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'wave-Magnetic Resonance Spectroscopy': 5500}\", 'train': '5500', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "IACTA-EST2023",
-      "slug": "iacta-est2023-2023",
-      "link": "https://lgiancauth.github.io/iacta-est-2023/",
-      "organization": null,
-      "challenge_series": "ISBI2023",
-      "license": "CC BY-NC-ND 4.0",
-      "release_date": "2023-01",
-      "year": 2023,
-      "dimension": "3D",
-      "modality": [
-        "Cta"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Brain",
-      "images_valid": 402,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": null,
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 402,
-      "data_volume_train": 402,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CTA': 402}\", 'train': '402', 'val': '', 'test': '', 'label': ''}"
     },
     {
       "name": "IACTA-EST2023",
@@ -25165,134 +23013,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": null
-    },
-    {
-      "name": "ISBI2023 challenge - PAIP 2023",
-      "slug": "isbi2023-challenge-paip-2023-2022",
-      "link": "https://2023paip.grand-challenge.org/",
-      "organization": null,
-      "challenge_series": "ISBI2023, Grand Challenge",
-      "license": "CC BY-NC 4.0",
-      "release_date": "2022-12",
-      "year": 2022,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Pancreas (Abdomen)",
-      "images_valid": 103,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "liver",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 103,
-      "data_volume_train": 103,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Pathology': 103}\", 'train': '103', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "ISBI2023 challenge - edited-mrs-rec-challenge",
-      "slug": "isbi2023-challenge-edited-mrs-rec-challenge-2022",
-      "link": "https://sites.google.com/view/edited-mrs-rec-challenge/home",
-      "organization": "University of Calgary",
-      "challenge_series": "ISBI2023",
-      "license": "only this challenge",
-      "release_date": "2022-12",
-      "year": 2022,
-      "dimension": null,
-      "modality": [
-        "MR"
-      ],
-      "modality_secondary": [
-        "Mrs"
-      ],
-      "task": [
-        "Reconstruction"
-      ],
-      "organ": null,
-      "images_valid": 5500,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "medium",
-      "impact": "low",
-      "data_volume_total": 5500,
-      "data_volume_train": 5500,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'wave-Magnetic Resonance Spectroscopy': 5500}\", 'train': '5500', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "ISBI2023 challenge - edited-mrs-rec-challenge",
-      "slug": "isbi2023-challenge-edited-mrs-rec-challenge-2022",
-      "link": "https://sites.google.com/view/edited-mrs-rec-challenge/home",
-      "organization": "University of Calgary",
-      "challenge_series": "ISBI2023",
-      "license": "only this challenge",
-      "release_date": "2022-12",
-      "year": 2022,
-      "dimension": null,
-      "modality": [
-        "MR"
-      ],
-      "modality_secondary": [
-        "Mrs"
-      ],
-      "task": [
-        "Reconstruction"
-      ],
-      "organ": null,
-      "images_valid": 5500,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "medium",
-      "impact": "low",
-      "data_volume_total": 5500,
-      "data_volume_train": 5500,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'wave-Magnetic Resonance Spectroscopy': 5500}\", 'train': '5500', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "ISBI2023 challenge - CEPHA29",
-      "slug": "isbi2023-challenge-cepha29",
-      "link": "http://vision.seecs.edu.pk/CEPHA29/",
-      "organization": null,
-      "challenge_series": "ISBI2023",
-      "license": null,
-      "release_date": null,
-      "year": null,
-      "dimension": "2D",
-      "modality": [
-        "X-Ray"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Localization"
-      ],
-      "organ": null,
-      "images_valid": 0,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 1000,
-      "data_volume_train": 1000,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-X_Ray': 1000}\", 'train': '1000', 'val': '', 'test': '', 'label': ''}"
     },
     {
       "name": "ATEC23",
@@ -26672,37 +24392,6 @@
       "data_volume_raw": "{'total': \"{'2D-whole-slide images':103}\", 'train': '53', 'val': '10', 'test': '40', 'label': ''}"
     },
     {
-      "name": "PAIP2023",
-      "slug": "paip2023-2022",
-      "link": "https://2023paip.grand-challenge.org/",
-      "organization": "MICCAI",
-      "challenge_series": "Grand Challenge",
-      "license": "CC BY-NC 4.0",
-      "release_date": "2022-12",
-      "year": 2022,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 103,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 103,
-      "data_volume_train": 53,
-      "data_volume_val": 10,
-      "data_volume_test": 40,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-whole-slide images':103}\", 'train': '53', 'val': '10', 'test': '40', 'label': ''}"
-    },
-    {
       "name": "AUTO-RTP",
       "slug": "auto-rtp-2022",
       "link": "https://auto-rtp.grand-challenge.org/",
@@ -26854,37 +24543,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'3D-CT': 59}\", 'train': '', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "ARCADE",
-      "slug": "arcade-2023",
-      "link": "https://arcade.grand-challenge.org/arcade/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2023, Grand Challenge",
-      "license": null,
-      "release_date": "2023-05",
-      "year": 2023,
-      "dimension": "2D",
-      "modality": [
-        "X-Ray"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 1500,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 1500,
-      "data_volume_train": 1000,
-      "data_volume_val": 200,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-X_Ray': 1500}\", 'train': '1000', 'val': '200', 'test': '', 'label': ''}"
     },
     {
       "name": "EndoVis2023-Syn-ISS",
@@ -30703,71 +28361,6 @@
       "data_volume_raw": "{'total': '', 'train': '', 'val': '', 'test': '', 'label': ''}"
     },
     {
-      "name": "PDDCA",
-      "slug": "pddca-2015",
-      "link": "https://www.imagenglab.com/newsite/pddca/",
-      "organization": "Harvard Medical School",
-      "challenge_series": null,
-      "license": "pubilc",
-      "release_date": "2015年",
-      "year": 2015,
-      "dimension": "3D",
-      "modality": [
-        "CT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 48,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "multi-organ",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 48,
-      "data_volume_train": 48,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT': 48}\", 'train': '48', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "CMRxRecon",
-      "slug": "cmrxrecon-2023",
-      "link": "https://zenodo.org/record/7840229#.ZFhHcM5ByCo",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2023",
-      "license": "CC BY-NC-ND",
-      "release_date": "2023-05",
-      "year": 2023,
-      "dimension": "3D",
-      "modality": [
-        "MR"
-      ],
-      "modality_secondary": [
-        "T1",
-        "T2"
-      ],
-      "task": [
-        "Reconstruction"
-      ],
-      "organ": null,
-      "images_valid": 200,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "Cardiac",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 200,
-      "data_volume_train": 120,
-      "data_volume_val": 30,
-      "data_volume_test": 50,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-MR':200}\", 'train': '120', 'val': '30', 'test': '50', 'label': ''}"
-    },
-    {
       "name": "EndoVis2023-PitVis",
       "slug": "endovis2023-pitvis-2023",
       "link": "https://www.synapse.org/#!Synapse:syn51232283/wiki/621581",
@@ -30799,200 +28392,6 @@
       "data_volume_raw": "{'total': \"{'Video-Endoscopy':40}\", 'train': '20', 'val': '5', 'test': '15', 'label': ''}"
     },
     {
-      "name": "EndoVis2023-PitVis",
-      "slug": "endovis2023-pitvis-2023",
-      "link": "https://www.synapse.org/#!Synapse:syn51232283/wiki/621581",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2023",
-      "license": null,
-      "release_date": "2023-06",
-      "year": 2023,
-      "dimension": "video",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": null,
-      "images_valid": 40,
-      "has_labels": true,
-      "num_classes": 19,
-      "tumor": "pituitary gland tumor",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 40,
-      "data_volume_train": 20,
-      "data_volume_val": 5,
-      "data_volume_test": 15,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'Video-Endoscopy':40}\", 'train': '20', 'val': '5', 'test': '15', 'label': ''}"
-    },
-    {
-      "name": "EEDL",
-      "slug": "eedl-2023",
-      "link": "https://zenodo.org/record/7835374#.ZFhPR85ByCo",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2023",
-      "license": null,
-      "release_date": "2023-02",
-      "year": 2023,
-      "dimension": "2D",
-      "modality": [
-        "MR"
-      ],
-      "modality_secondary": [
-        "Fmri",
-        "T2"
-      ],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 710,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "brain",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 710,
-      "data_volume_train": 490,
-      "data_volume_val": 110,
-      "data_volume_test": 110,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-MR': 710}\", 'train': '490', 'val': '110', 'test': '110', 'label': ''}"
-    },
-    {
-      "name": "Learn2Reg2023",
-      "slug": "learn2reg2023-2023",
-      "link": "https://learn2reg.grand-challenge.org/learn2reg-2023/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2023, Grand Challenge",
-      "license": null,
-      "release_date": "2023-05",
-      "year": 2023,
-      "dimension": "3D",
-      "modality": [
-        "CT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Registration"
-      ],
-      "organ": null,
-      "images_valid": 42,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "Lung nodule",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 42,
-      "data_volume_train": 42,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT':42}\", 'train': '42', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "Learn2Reg2023",
-      "slug": "learn2reg2023-2022",
-      "link": "https://learn2reg.grand-challenge.org/learn2reg-2023/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2023, Grand Challenge",
-      "license": null,
-      "release_date": "2022-05",
-      "year": 2022,
-      "dimension": "3D",
-      "modality": [
-        "CT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Registration"
-      ],
-      "organ": null,
-      "images_valid": 42,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "Lung nodule",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 42,
-      "data_volume_train": 42,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT':42}\", 'train': '42', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "Learn2Reg2023",
-      "slug": "learn2reg2023-2022",
-      "link": "https://learn2reg.grand-challenge.org/learn2reg-2023/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2023, Grand Challenge",
-      "license": null,
-      "release_date": "2022-05",
-      "year": 2022,
-      "dimension": "3D",
-      "modality": [
-        "MR"
-      ],
-      "modality_secondary": [
-        "T1W"
-      ],
-      "task": [
-        "Registration"
-      ],
-      "organ": null,
-      "images_valid": 42,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "Lung nodule",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 42,
-      "data_volume_train": 42,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT':42}\", 'train': '42', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "Learn2Reg2023",
-      "slug": "learn2reg2023-2022",
-      "link": "https://learn2reg.grand-challenge.org/learn2reg-2023/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2023, Grand Challenge",
-      "license": null,
-      "release_date": "2022-05",
-      "year": 2022,
-      "dimension": "3D",
-      "modality": [
-        "CT",
-        "MR"
-      ],
-      "modality_secondary": [
-        "T1W"
-      ],
-      "task": [
-        "Registration"
-      ],
-      "organ": null,
-      "images_valid": 42,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "Lung nodule",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 42,
-      "data_volume_train": 42,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT':42}\", 'train': '42', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
       "name": "SEG.A. 2023",
       "slug": "sega-2023-2022",
       "link": "https://multicenteraorta.grand-challenge.org/",
@@ -31022,445 +28421,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'3D-CTA':56}\", 'train': '56', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "Semi-TeethSeg",
-      "slug": "semi-teethseg-2023",
-      "link": "https://zenodo.org/record/7840021#.ZFi9Mc5ByCo",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2023",
-      "license": null,
-      "release_date": "2023-03",
-      "year": 2023,
-      "dimension": "2D",
-      "modality": [
-        "X-Ray"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 120,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "Teeth",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 120,
-      "data_volume_train": 113,
-      "data_volume_val": 2,
-      "data_volume_test": 5,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT':120}\", 'train': '113', 'val': '2', 'test': '5', 'label': ''}"
-    },
-    {
-      "name": "SegRap2023",
-      "slug": "segrap2023-2023",
-      "link": "https://segrap2023.grand-challenge.org/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2023, Grand Challenge",
-      "license": null,
-      "release_date": "2023-04",
-      "year": 2023,
-      "dimension": "3D",
-      "modality": [
-        "CT",
-        "Contrast Ct"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 160,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "multi-organ",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 160,
-      "data_volume_train": 120,
-      "data_volume_val": 40,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT':160}\", 'train': '120', 'val': '40', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "STAGE",
-      "slug": "stage-2023",
-      "link": "https://zenodo.org/record/7835341#.ZFi9Ps5ByCo",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2023",
-      "license": null,
-      "release_date": "2023-07",
-      "year": 2023,
-      "dimension": "3D",
-      "modality": [
-        "OCT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": null,
-      "images_valid": 400,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": "Glaucoma",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 400,
-      "data_volume_train": 200,
-      "data_volume_val": 100,
-      "data_volume_test": 100,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-OCT':400}\", 'train': '200', 'val': '100', 'test': '100', 'label': ''}"
-    },
-    {
-      "name": "STAGE",
-      "slug": "stage-2023",
-      "link": "https://zenodo.org/record/7835341#.ZFi9Ps5ByCo",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2023",
-      "license": null,
-      "release_date": "2023-07",
-      "year": 2023,
-      "dimension": "3D",
-      "modality": [
-        "OCT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Regression"
-      ],
-      "organ": null,
-      "images_valid": 400,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "Glaucoma",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 400,
-      "data_volume_train": 200,
-      "data_volume_val": 100,
-      "data_volume_test": 100,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-OCT':400}\", 'train': '200', 'val': '100', 'test': '100', 'label': ''}"
-    },
-    {
-      "name": "T3 Challenge",
-      "slug": "t3-challenge-2023",
-      "link": "新：https://thompson-challenge.grand-challenge.org/\n旧：https://thompsonisat.github.io/ISAT-THOMPSON/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2023, Grand Challenge",
-      "license": null,
-      "release_date": "2023-07",
-      "year": 2023,
-      "dimension": "video",
-      "modality": [
-        "Others"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": null,
-      "images_valid": 0,
-      "has_labels": true,
-      "num_classes": 5,
-      "tumor": "Trauma",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": null,
-      "data_volume_train": null,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': '', 'train': '', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "T3 Challenge",
-      "slug": "t3-challenge-2023",
-      "link": "新：https://thompson-challenge.grand-challenge.org/\n旧：https://thompsonisat.github.io/ISAT-THOMPSON/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2023, Grand Challenge",
-      "license": null,
-      "release_date": "2023-07",
-      "year": 2023,
-      "dimension": "video",
-      "modality": [
-        "Others"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": null,
-      "images_valid": 0,
-      "has_labels": true,
-      "num_classes": 5,
-      "tumor": "Trauma",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": null,
-      "data_volume_train": null,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': '', 'train': '', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "T3 Challenge",
-      "slug": "t3-challenge-2023",
-      "link": "新：https://thompson-challenge.grand-challenge.org/\n旧：https://thompsonisat.github.io/ISAT-THOMPSON/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2023, Grand Challenge",
-      "license": null,
-      "release_date": "2023-07",
-      "year": 2023,
-      "dimension": "video",
-      "modality": [
-        "Others"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Visual Question Answering"
-      ],
-      "organ": null,
-      "images_valid": 0,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "Trauma",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": null,
-      "data_volume_train": null,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': '', 'train': '', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "MedFM2023",
-      "slug": "medfm2023-2023",
-      "link": "https://medfm2023.grand-challenge.org/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2023",
-      "license": null,
-      "release_date": "2023-05",
-      "year": 2023,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": null,
-      "images_valid": 4848,
-      "has_labels": true,
-      "num_classes": 19,
-      "tumor": "thoracic disease",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 4848,
-      "data_volume_train": 2140,
-      "data_volume_val": 2708,
-      "data_volume_test": 2626,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-X_Ray':4848}\", 'train': '2140', 'val': '2708', 'test': '2626', 'label': ''}"
-    },
-    {
-      "name": "MedFM2023",
-      "slug": "medfm2023-2023",
-      "link": "https://medfm2023.grand-challenge.org/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2023",
-      "license": null,
-      "release_date": "2023-05",
-      "year": 2023,
-      "dimension": "2D",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": null,
-      "images_valid": 4848,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": "pathological tumor",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 4848,
-      "data_volume_train": 2140,
-      "data_volume_val": 2708,
-      "data_volume_test": 2626,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-X_Ray':4848}\", 'train': '2140', 'val': '2708', 'test': '2626', 'label': ''}"
-    },
-    {
-      "name": "CoNIC2022",
-      "slug": "conic2022-2022",
-      "link": "https://conic-challenge.grand-challenge.org/",
-      "organization": "Tissue Image Analytics Centre, Department of Computer Science, University of Warwick, United Kingdom",
-      "challenge_series": "ISBI2022, Grand Challenge",
-      "license": null,
-      "release_date": "2022-11",
-      "year": 2022,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Regression"
-      ],
-      "organ": null,
-      "images_valid": 4981,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "Colon Nuclei",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 4981,
-      "data_volume_train": 4981,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Histopathology':4981}\", 'train': '4981', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "CuRIOUS2022",
-      "slug": "curious2022-2022",
-      "link": "https://curious2022.grand-challenge.org/",
-      "organization": "SINTEF, Trondheim, Norway",
-      "challenge_series": "MICCAI2022, Grand Challenge",
-      "license": null,
-      "release_date": "2022-07",
-      "year": 2022,
-      "dimension": "3D",
-      "modality": [
-        "MR",
-        "Ultrasound"
-      ],
-      "modality_secondary": [
-        "T1W",
-        "T2-Flair"
-      ],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Brain",
-      "images_valid": 23,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "brain tumor",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 23,
-      "data_volume_train": 23,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-MR':23}\", 'train': '23', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "DRAC22",
-      "slug": "drac22-2022",
-      "link": "https://drac22.grand-challenge.org/",
-      "organization": "Shanghai Jiao Tong University, China",
-      "challenge_series": "MICCAI2022, Grand Challenge",
-      "license": "CC BY 4.0",
-      "release_date": "2022-08",
-      "year": 2022,
-      "dimension": "2D",
-      "modality": [
-        "OCT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": null,
-      "images_valid": 174,
-      "has_labels": true,
-      "num_classes": 5,
-      "tumor": "Diabetic Retinopathy",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 174,
-      "data_volume_train": 109,
-      "data_volume_val": null,
-      "data_volume_test": 65,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-OCT':174}\", 'train': '109', 'val': '', 'test': '65', 'label': ''}"
-    },
-    {
-      "name": "DRAC22",
-      "slug": "drac22-2022",
-      "link": "https://drac22.grand-challenge.org/",
-      "organization": "Shanghai Jiao Tong University, China",
-      "challenge_series": "MICCAI2022, Grand Challenge",
-      "license": "CC BY 4.0",
-      "release_date": "2022-08",
-      "year": 2022,
-      "dimension": "2D",
-      "modality": [
-        "OCT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": null,
-      "images_valid": 174,
-      "has_labels": true,
-      "num_classes": 5,
-      "tumor": "Diabetic Retinopathy",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 174,
-      "data_volume_train": 109,
-      "data_volume_val": null,
-      "data_volume_test": 65,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-OCT':174}\", 'train': '109', 'val': '', 'test': '65', 'label': ''}"
-    },
-    {
-      "name": "EAD19",
-      "slug": "ead19-2018",
-      "link": "https://ead2019.grand-challenge.org/Data/",
-      "organization": null,
-      "challenge_series": "ISBI2019, Grand Challenge",
-      "license": null,
-      "release_date": "2018-12",
-      "year": 2018,
-      "dimension": "video, 2D",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": null,
-      "images_valid": 2147,
-      "has_labels": true,
-      "num_classes": 7,
-      "tumor": "Endoscopic artefact",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 2500,
-      "data_volume_train": 2000,
-      "data_volume_val": null,
-      "data_volume_test": 500,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'Video-Endoscopy':2500}\", 'train': '2000', 'val': '', 'test': '500', 'label': ''}"
     },
     {
       "name": "AIIB2023",
@@ -31557,37 +28517,6 @@
       "data_volume_raw": "{'total': \"{'2D-Microscopy Images':400}\", 'train': '430', 'val': '', 'test': '', 'label': ''}"
     },
     {
-      "name": "NuCLS",
-      "slug": "nucls-2021",
-      "link": "https://nucls.grand-challenge.org/NuCLS/",
-      "organization": null,
-      "challenge_series": "Grand Challenge",
-      "license": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
-      "release_date": "2021-02",
-      "year": 2021,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Detection"
-      ],
-      "organ": null,
-      "images_valid": 3083,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "breast cancer",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 3083,
-      "data_volume_train": 3083,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Histopathology':3083}\", 'train': '3083', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
       "name": "P2ILF",
       "slug": "p2ilf-2022",
       "link": "https://p2ilf.grand-challenge.org/",
@@ -31650,300 +28579,6 @@
       "data_volume_raw": "{'total': \"{'2D-whole-slide images':200}\", 'train': '150', 'val': '', 'test': '50', 'label': ''}"
     },
     {
-      "name": "ADAM2020",
-      "slug": "adam2020-2020",
-      "link": "https://adam.isi.uu.nl/",
-      "organization": null,
-      "challenge_series": "MICCAI2020",
-      "license": null,
-      "release_date": "2020-04",
-      "year": 2020,
-      "dimension": "3D",
-      "modality": [
-        "MR",
-        "Mra"
-      ],
-      "modality_secondary": [
-        "Tof"
-      ],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Brain",
-      "images_valid": 113,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "Aneurysm",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 113,
-      "data_volume_train": 113,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-MR':113}\", 'train': '113', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "BraTS 2017",
-      "slug": "brats-2017-2017",
-      "link": "https://www.med.upenn.edu/sbia/brats2017.html",
-      "organization": "University of Pennsylvania",
-      "challenge_series": "MICCAI2017",
-      "license": "free",
-      "release_date": "2017-05",
-      "year": 2017,
-      "dimension": "3D",
-      "modality": [
-        "MR"
-      ],
-      "modality_secondary": [
-        "T1",
-        "T2",
-        "T1-Gd",
-        "Flair"
-      ],
-      "task": [
-        "Prediction"
-      ],
-      "organ": null,
-      "images_valid": 285,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "Brain Tumor",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 285,
-      "data_volume_train": 285,
-      "data_volume_val": 46,
-      "data_volume_test": 146,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-MR':285}\", 'train': '285', 'val': '46', 'test': '146', 'label': ''}"
-    },
-    {
-      "name": "BraTS 2018",
-      "slug": "brats-2018-2018",
-      "link": "https://www.med.upenn.edu/sbia/brats2018/data.html",
-      "organization": "CBICA",
-      "challenge_series": "MICCAI2018",
-      "license": "free",
-      "release_date": "2018-04",
-      "year": 2018,
-      "dimension": "3D",
-      "modality": [
-        "MR"
-      ],
-      "modality_secondary": [
-        "T1",
-        "T2",
-        "Flair",
-        "T1C"
-      ],
-      "task": [
-        "Prediction"
-      ],
-      "organ": null,
-      "images_valid": 285,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "Brain Tumor",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 285,
-      "data_volume_train": 1140,
-      "data_volume_val": null,
-      "data_volume_test": 264,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-MR':285}\", 'train': '1140', 'val': '', 'test': '264', 'label': ''}"
-    },
-    {
-      "name": "BraTS 2019",
-      "slug": "brats-2019-2019",
-      "link": "https://www.med.upenn.edu/cbica/brats-2019/",
-      "organization": "CBICA",
-      "challenge_series": "MICCAI2019",
-      "license": "free",
-      "release_date": "2019-06",
-      "year": 2019,
-      "dimension": "3D",
-      "modality": [
-        "MR"
-      ],
-      "modality_secondary": [
-        "T1",
-        "T2",
-        "Flair",
-        "T1C"
-      ],
-      "task": [
-        "Prediction"
-      ],
-      "organ": null,
-      "images_valid": 335,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "Brain Tumor",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 335,
-      "data_volume_train": 1340,
-      "data_volume_val": null,
-      "data_volume_test": 500,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-MR':335}\", 'train': '1340', 'val': '', 'test': '500', 'label': ''}"
-    },
-    {
-      "name": "BraTS 2020",
-      "slug": "brats-2020-2020",
-      "link": "https://www.med.upenn.edu/cbica/brats2020/data.html",
-      "organization": "university of pennsylvania",
-      "challenge_series": "MICCAI2020",
-      "license": "free",
-      "release_date": "2020-05",
-      "year": 2020,
-      "dimension": "3D",
-      "modality": [
-        "MR"
-      ],
-      "modality_secondary": [
-        "T1",
-        "T2",
-        "Flair",
-        "T1-Ce"
-      ],
-      "task": [
-        "Prediction"
-      ],
-      "organ": null,
-      "images_valid": 660,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "Brain Tumor",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 660,
-      "data_volume_train": 1476,
-      "data_volume_val": null,
-      "data_volume_test": 500,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-MR':660}\", 'train': '1476', 'val': '', 'test': '500', 'label': ''}"
-    },
-    {
-      "name": "CPTAC-LUAD",
-      "slug": "cptac-luad-2018",
-      "link": "https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=33948253",
-      "organization": "TCIA",
-      "challenge_series": "TCIA",
-      "license": "CC BY 3.0",
-      "release_date": "2018-01",
-      "year": 2018,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [],
-      "task": [],
-      "organ": null,
-      "images_valid": 143,
-      "has_labels": false,
-      "num_classes": null,
-      "tumor": "Lung Adenocarcinoma",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 38,
-      "data_volume_train": 38,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT,MR,PET':38}\", 'train': '38', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "CPTAC-PDA",
-      "slug": "cptac-pda-2018",
-      "link": "https://wiki.cancerimagingarchive.net/display/Public/CPTAC-PDA#33948258171ba531fc374829b21d3647e95f532c",
-      "organization": "TCIA",
-      "challenge_series": "TCIA",
-      "license": "CC BY 3.0",
-      "release_date": "2018-01",
-      "year": 2018,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [],
-      "task": [],
-      "organ": null,
-      "images_valid": 199,
-      "has_labels": false,
-      "num_classes": null,
-      "tumor": "Lung Adenocarcinoma",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 129,
-      "data_volume_train": 129,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT,MR,PET,Ultrasound':129}\", 'train': '129', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "CPTAC-SAR",
-      "slug": "cptac-sar-2019",
-      "link": "https://wiki.cancerimagingarchive.net/display/Public/CPTAC-SAR?searchId=W6FDY23TH",
-      "organization": "TCIA",
-      "challenge_series": "TCIA",
-      "license": "CC BY 3.0",
-      "release_date": "2019-03",
-      "year": 2019,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [],
-      "task": [],
-      "organ": null,
-      "images_valid": 217,
-      "has_labels": false,
-      "num_classes": null,
-      "tumor": "Lung Adenocarcinoma",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 33,
-      "data_volume_train": 268,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT,MR,PET':33}\", 'train': '268', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "CPTAC-UCEC",
-      "slug": "cptac-ucec-2018",
-      "link": "https://wiki.cancerimagingarchive.net/display/Public/CPTAC-UCEC#33948263171ba531fc374829b21d3647e95f532c",
-      "organization": "TCIA",
-      "challenge_series": "TCIA",
-      "license": "CC BY 3.0",
-      "release_date": "2018-01",
-      "year": 2018,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [],
-      "task": [],
-      "organ": null,
-      "images_valid": 584,
-      "has_labels": false,
-      "num_classes": null,
-      "tumor": "Lung Adenocarcinoma",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 138,
-      "data_volume_train": 138,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT,MR':138}\", 'train': '138', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
       "name": "CSI15",
       "slug": "csi15-2015",
       "link": "https://csi2015.weebly.com/challenges.html",
@@ -31975,37 +28610,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": "{'total': '', 'train': '', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "CTVIE19",
-      "slug": "ctvie19-2019",
-      "link": "http://aapmchallenges.cloudapp.net/competitions/35",
-      "organization": null,
-      "challenge_series": "AAPM",
-      "license": null,
-      "release_date": "2019",
-      "year": 2019,
-      "dimension": "4D(3D + time)",
-      "modality": [
-        "CT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": null,
-      "images_valid": 115,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "pulmonary pathologies.",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 115,
-      "data_volume_train": 50,
-      "data_volume_val": null,
-      "data_volume_test": 65,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'4D-CT':115}\", 'train': '50', 'val': '', 'test': '65', 'label': ''}"
     },
     {
       "name": "EMIDEC2020",
@@ -32041,37 +28645,6 @@
       "data_volume_raw": "{'total': \"{'3D-MR':150}\", 'train': '100', 'val': '', 'test': '50', 'label': ''}"
     },
     {
-      "name": "EndoCV2020-Sub Challenge1",
-      "slug": "endocv2020-sub-challenge1-2019",
-      "link": "https://endocv.grand-challenge.org/",
-      "organization": "Oxford biomedical research centre",
-      "challenge_series": "ISBI2020, Grand Challenge",
-      "license": "CC BY-NC 4.0",
-      "release_date": "2019-11",
-      "year": 2019,
-      "dimension": "2D",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 2299,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "multi-organ Artefact",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 2299,
-      "data_volume_train": 2299,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Endoscopy':2299}\", 'train': '2299', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
       "name": "CROWN",
       "slug": "crown-2023",
       "link": "https://crown.isi.uu.nl/",
@@ -32105,136 +28678,6 @@
       "data_volume_raw": "{'total': \"{'3D-MRA': 600}\", 'train': '300', 'val': '', 'test': '300', 'label': ''}"
     },
     {
-      "name": "PCa_Bx_3Dpathology",
-      "slug": "pca_bx_3dpathology-2023",
-      "link": "https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=145754446#14575444698a69c5e18ad4bc6830e870bde7ad1e6",
-      "organization": "TCIA",
-      "challenge_series": "TCIA",
-      "license": "TCIA",
-      "release_date": "2023-03",
-      "year": 2023,
-      "dimension": "3D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 118,
-      "has_labels": true,
-      "num_classes": 0,
-      "tumor": "prostate cancer",
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 118,
-      "data_volume_train": null,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{\"total\": \"{'2D-Pathology': 118}\", \"train\": \"None\", \"val\": \"None\", \"test\": \"None\", \"label\": \"\"}"
-    },
-    {
-      "name": "Meningioma-SEG-CLASS",
-      "slug": "meningioma-seg-class-2023",
-      "link": "https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=133071972#133071972c543f96740ec41b2bf51a6e8fa856c51",
-      "organization": "TCIA",
-      "challenge_series": "TCIA",
-      "license": "TCIA",
-      "release_date": "2023-02",
-      "year": 2023,
-      "dimension": "3D",
-      "modality": [
-        "MR"
-      ],
-      "modality_secondary": [
-        "T1",
-        "T1-Ce",
-        "T2-Flair"
-      ],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 180,
-      "has_labels": true,
-      "num_classes": 0,
-      "tumor": "Meningioma",
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 180,
-      "data_volume_train": null,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{\"total\": \"{'3D-MR': 180}\", \"train\": \"None\", \"val\": \"None\", \"test\": \"None\", \"label\": \"\"}"
-    },
-    {
-      "name": "RADCURE",
-      "slug": "radcure-2023",
-      "link": "https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=70226325",
-      "organization": "TCIA",
-      "challenge_series": "TCIA",
-      "license": "tcia",
-      "release_date": "2023-06",
-      "year": 2023,
-      "dimension": "3D",
-      "modality": [
-        "CT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 3346,
-      "has_labels": true,
-      "num_classes": 0,
-      "tumor": "Head and neck squamous cell carcinoma",
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 3346,
-      "data_volume_train": null,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{\"total\": \"{'3D-CT': 3346}\", \"train\": \"None\", \"val\": \"None\", \"test\": \"None\", \"label\": \"\"}"
-    },
-    {
-      "name": "Post-NAT-BRCA",
-      "slug": "post-nat-brca-2019",
-      "link": "https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=52758117",
-      "organization": "TCIA",
-      "challenge_series": "TCIA",
-      "license": "tcia",
-      "release_date": "2019-10",
-      "year": 2019,
-      "dimension": "2D",
-      "modality": [
-        "Pathology/Histopathology"
-      ],
-      "modality_secondary": [
-        "Pathology/Histopathology"
-      ],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 96,
-      "has_labels": true,
-      "num_classes": 0,
-      "tumor": "Breast Cancer",
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 96,
-      "data_volume_train": null,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{\"total\": \"{'2D-Pathology': 96}\", \"train\": \"None\", \"val\": \"None\", \"test\": \"None\", \"label\": \"\"}"
-    },
-    {
       "name": "EndoVis2023-SurgRIPE",
       "slug": "endovis2023-surgripe-2023",
       "link": "https://www.synapse.org/#!Synapse:syn51471789/wiki/622255",
@@ -32266,441 +28709,6 @@
       "data_volume_raw": "{\"total\": \"None\", \"train\": \"None\", \"val\": \"None\", \"test\": \"None\", \"label\": \"\"}"
     },
     {
-      "name": "EndoVis 2022 - P2ILF_3D-CT",
-      "slug": "endovis-2022-p2ilf_3d-ct-2022",
-      "link": "https://p2ilf.grand-challenge.org/Data/",
-      "organization": "MICCAI",
-      "challenge_series": "Grand Challenge",
-      "license": "CC BY-NC-SA 4.0",
-      "release_date": "2022-06",
-      "year": 2022,
-      "dimension": "3D, video",
-      "modality": [
-        "Endoscopy",
-        "CT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Registration"
-      ],
-      "organ": null,
-      "images_valid": 15,
-      "has_labels": true,
-      "num_classes": 0,
-      "tumor": "Liver",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 15,
-      "data_volume_train": 17,
-      "data_volume_val": null,
-      "data_volume_test": 8,
-      "data_volume_label": null,
-      "data_volume_raw": "{\"total\": \"{'3D-CT':15}\", \"train\": \"17\", \"val\": \"None\", \"test\": \"8\", \"label\": \"\"}"
-    },
-    {
-      "name": "EndoVis 2022 - SimCol-to-3D",
-      "slug": "endovis-2022-simcol-to-3d-2022",
-      "link": "https://www.synapse.org/#!Synapse:syn28548633/files/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2022",
-      "license": null,
-      "release_date": "2022-04",
-      "year": 2022,
-      "dimension": "video",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Estimation"
-      ],
-      "organ": null,
-      "images_valid": 15,
-      "has_labels": true,
-      "num_classes": 0,
-      "tumor": "Colon",
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 15,
-      "data_volume_train": 12,
-      "data_volume_val": null,
-      "data_volume_test": 3,
-      "data_volume_label": null,
-      "data_volume_raw": "{\"total\": \"{'Video-Endoscopy':15}\", \"train\": \"12\", \"val\": \"None\", \"test\": \"3\", \"label\": \"\"}"
-    },
-    {
-      "name": "EndoVis 2022 - SimCol-to-3D",
-      "slug": "endovis-2022-simcol-to-3d-2022",
-      "link": "https://www.synapse.org/#!Synapse:syn28548633/files/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2022",
-      "license": null,
-      "release_date": "2022-04",
-      "year": 2022,
-      "dimension": "video",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Estimation"
-      ],
-      "organ": null,
-      "images_valid": 15,
-      "has_labels": true,
-      "num_classes": 0,
-      "tumor": "Colon",
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 15,
-      "data_volume_train": 12,
-      "data_volume_val": null,
-      "data_volume_test": 3,
-      "data_volume_label": null,
-      "data_volume_raw": "{\"total\": \"{'Video-Endoscopy':15}\", \"train\": \"12\", \"val\": \"None\", \"test\": \"3\", \"label\": \"\"}"
-    },
-    {
-      "name": "EndoVis 2022 - SAR-RARP50",
-      "slug": "endovis-2022-sar-rarp50-2022",
-      "link": "https://www.synapse.org/#!Synapse:syn27618412/wiki/616881",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2022",
-      "license": null,
-      "release_date": "2022-06",
-      "year": 2022,
-      "dimension": "video",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Estimation"
-      ],
-      "organ": null,
-      "images_valid": 50,
-      "has_labels": true,
-      "num_classes": 0,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 50,
-      "data_volume_train": 40,
-      "data_volume_val": null,
-      "data_volume_test": 10,
-      "data_volume_label": null,
-      "data_volume_raw": "{\"total\": \"{'Video-Endoscopy':50}\", \"train\": \"40\", \"val\": \"None\", \"test\": \"10\", \"label\": \"\"}"
-    },
-    {
-      "name": "EndoVis 2022 - SATDL",
-      "slug": "endovis-2022-satdl-2022",
-      "link": "https://cholectriplet2022.grand-challenge.org/cholectriplet2022/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2022, Grand Challenge",
-      "license": null,
-      "release_date": "2022-04",
-      "year": 2022,
-      "dimension": "video",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Localization"
-      ],
-      "organ": null,
-      "images_valid": 50,
-      "has_labels": true,
-      "num_classes": 0,
-      "tumor": "Gallbladder",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 50,
-      "data_volume_train": 45,
-      "data_volume_val": null,
-      "data_volume_test": 5,
-      "data_volume_label": null,
-      "data_volume_raw": "{\"total\": \"{'Video-Endoscopy':50}\", \"train\": \"45\", \"val\": \"None\", \"test\": \"5\", \"label\": \"\"}"
-    },
-    {
-      "name": "EndoVis 2022 - SATDL",
-      "slug": "endovis-2022-satdl-2022",
-      "link": "https://cholectriplet2022.grand-challenge.org/cholectriplet2022/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2022, Grand Challenge",
-      "license": null,
-      "release_date": "2022-04",
-      "year": 2022,
-      "dimension": "video",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Detection"
-      ],
-      "organ": null,
-      "images_valid": 50,
-      "has_labels": true,
-      "num_classes": 0,
-      "tumor": "Gallbladder",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 50,
-      "data_volume_train": 45,
-      "data_volume_val": null,
-      "data_volume_test": 5,
-      "data_volume_label": null,
-      "data_volume_raw": "{\"total\": \"{'Video-Endoscopy':50}\", \"train\": \"45\", \"val\": \"None\", \"test\": \"5\", \"label\": \"\"}"
-    },
-    {
-      "name": "EndoVis 2022 - SurgToolLoc",
-      "slug": "endovis-2022-surgtoolloc-2022",
-      "link": "https://surgtoolloc.grand-challenge.org/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2022, Grand Challenge",
-      "license": null,
-      "release_date": "2022-04",
-      "year": 2022,
-      "dimension": "video",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Detection"
-      ],
-      "organ": null,
-      "images_valid": 24695,
-      "has_labels": true,
-      "num_classes": 14,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 24695,
-      "data_volume_train": 24695,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'Video-Endoscopy':24695}\", 'train': '24695', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "EndoVis 2021 - SimSurgSkill",
-      "slug": "endovis-2021-simsurgskill-2021",
-      "link": "https://www.synapse.org/#!Synapse:syn25127311/wiki/608840",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2021",
-      "license": "only this challenge",
-      "release_date": "2021-06",
-      "year": 2021,
-      "dimension": "video",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Measurement"
-      ],
-      "organ": null,
-      "images_valid": 0,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": null,
-      "data_volume_train": null,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': '', 'train': '', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "EndoVis 2021 - PETRAW",
-      "slug": "endovis-2021-petraw-2021",
-      "link": "https://www.synapse.org/#!Synapse:syn25147789/wiki/608848",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2021",
-      "license": null,
-      "release_date": "2021-06",
-      "year": 2021,
-      "dimension": "video",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 150,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 150,
-      "data_volume_train": 90,
-      "data_volume_val": null,
-      "data_volume_test": 60,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'Video-Endoscopy':150}\", 'train': '90', 'val': '', 'test': '60', 'label': ''}"
-    },
-    {
-      "name": "EndoVis 2021 - FetReg",
-      "slug": "endovis-2021-fetreg-2021",
-      "link": "https://www.synapse.org/#!Synapse:syn25313156/wiki/609152",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2021",
-      "license": null,
-      "release_date": "2021-05",
-      "year": 2021,
-      "dimension": "video",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Registration"
-      ],
-      "organ": null,
-      "images_valid": 2060,
-      "has_labels": true,
-      "num_classes": 4,
-      "tumor": "Twin-to-Twin Transfusion Syndrome",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 2060,
-      "data_volume_train": 2060,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Endoscopy':2060}\", 'train': '2060', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "EndoVis 2021 - GIANA",
-      "slug": "endovis-2021-giana-2021",
-      "link": "https://giana.grand-challenge.org/",
-      "organization": "MICCAI",
-      "challenge_series": "Grand Challenge",
-      "license": null,
-      "release_date": "2021-05",
-      "year": 2021,
-      "dimension": "2D",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": null,
-      "images_valid": 38,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": "Polyp",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 38,
-      "data_volume_train": 18,
-      "data_volume_val": null,
-      "data_volume_test": 20,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'Video-Endoscopy':38}\", 'train': '18', 'val': '', 'test': '20', 'label': ''}"
-    },
-    {
-      "name": "EndoVis 2020 - SurgVisDom",
-      "slug": "endovis-2020-surgvisdom-2020",
-      "link": "https://surgvisdom.grand-challenge.org/Home/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2020, Grand Challenge",
-      "license": "CC BY-NC 4.0",
-      "release_date": "2020-08",
-      "year": 2020,
-      "dimension": "video",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": null,
-      "images_valid": 476,
-      "has_labels": true,
-      "num_classes": 12,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 476,
-      "data_volume_train": 476,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'Video-Endoscopy':476}\", 'train': '476', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "EndoVis 2020 - MISAW",
-      "slug": "endovis-2020-misaw-2020",
-      "link": "https://www.synapse.org/#!Synapse:syn21776936/wiki/601700",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2020, Grand Challenge",
-      "license": null,
-      "release_date": "2020-06",
-      "year": 2020,
-      "dimension": "video",
-      "modality": [
-        "Stereoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": null,
-      "images_valid": 27,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 27,
-      "data_volume_train": 17,
-      "data_volume_val": null,
-      "data_volume_test": 10,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'Video-Stereoscopy': 27}\", 'train': '17', 'val': '', 'test': '10', 'label': ''}"
-    },
-    {
-      "name": "EndoVis 2019 - SWSA",
-      "slug": "endovis-2019-swsa-2019",
-      "link": "https://endovissub-workflowandskill.grand-challenge.org/EndoVisSub-WorkflowAndSkill/",
-      "organization": "MICCAI",
-      "challenge_series": "Grand Challenge, MICCAI2019",
-      "license": "CC BY-NC",
-      "release_date": "2019-03",
-      "year": 2019,
-      "dimension": "video",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": null,
-      "images_valid": 30,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "Cholecystectomy",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 30,
-      "data_volume_train": 24,
-      "data_volume_val": null,
-      "data_volume_test": 6,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'Video-Endoscopy':30}\", 'train': '24', 'val': '', 'test': '6', 'label': ''}"
-    },
-    {
       "name": "EndoVis 2019 - ROBUST-MIS",
       "slug": "endovis-2019-robust-mis-2019",
       "link": "https://robustmis2019.grand-challenge.org/MainConstruction/",
@@ -32718,7 +28726,7 @@
         "Segmentation"
       ],
       "organ": null,
-      "images_valid": null,
+      "images_valid": 10,
       "has_labels": true,
       "num_classes": null,
       "tumor": null,
@@ -32730,37 +28738,6 @@
       "data_volume_test": 10,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'Video-Endoscopy':10}\", 'train': '10', 'val': '', 'test': '10', 'label': ''}"
-    },
-    {
-      "name": "EndoVis 2017 - RIS",
-      "slug": "endovis-2017-ris-2017",
-      "link": "https://endovissub2017-roboticinstrumentsegmentation.grand-challenge.org/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2017, Grand Challenge",
-      "license": null,
-      "release_date": "2017-05",
-      "year": 2017,
-      "dimension": "video",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 18,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 18,
-      "data_volume_train": 8,
-      "data_volume_val": null,
-      "data_volume_test": 10,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'Video-Endoscopy':18}\", 'train': '8', 'val': '', 'test': '10', 'label': ''}"
     },
     {
       "name": "EndoVis 2015 - IST",
@@ -32792,68 +28769,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'2D-Endoscopy':100,'Video-Endoscopy':10}\", 'train': '', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "EndoVis 2015 - APDCV",
-      "slug": "endovis-2015-apdcv-2015",
-      "link": "https://polyp.grand-challenge.org/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2015, Grand Challenge",
-      "license": null,
-      "release_date": "2015",
-      "year": 2015,
-      "dimension": "2D",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": null,
-      "images_valid": 612,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": "Polyp",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 612,
-      "data_volume_train": 612,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Endoscopy': 612}\", 'train': '612', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "EndoVis 2015 - EBCD",
-      "slug": "endovis-2015-ebcd-2015",
-      "link": "https://endovissub-barrett.grand-challenge.org/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2015",
-      "license": null,
-      "release_date": "2015-07",
-      "year": 2015,
-      "dimension": "2D",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 150,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": "Barrett's Esophagus",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 150,
-      "data_volume_train": 50,
-      "data_volume_val": null,
-      "data_volume_test": 100,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Endoscopy':150}\", 'train': '50', 'val': '', 'test': '100', 'label': ''}"
     },
     {
       "name": "业务数据-CBCT",
@@ -32947,37 +28862,6 @@
       "data_volume_test": 30,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'2D-Fundus Photography':60}\", 'train': '30', 'val': '', 'test': '30', 'label': ''}"
-    },
-    {
-      "name": "Dataset for AO-SLO cone photoreceptor automatic segmentation and analysis",
-      "slug": "dataset-for-ao-slo-cone-photoreceptor-automatic-segmentation-and-analysis-2013",
-      "link": "https://people.duke.edu/~sf59/Chiu_BOE_2013_dataset.htm",
-      "organization": "Duke University",
-      "challenge_series": null,
-      "license": null,
-      "release_date": "2013-05",
-      "year": 2013,
-      "dimension": "2D",
-      "modality": [
-        "Ophthalmoscope"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": "Retina",
-      "images_valid": 840,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": null,
-      "quality_flag": "medium",
-      "impact": "low",
-      "data_volume_total": 840,
-      "data_volume_train": null,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Ophthalmoscope':840}\", 'train': '', 'val': '', 'test': '', 'label': ''}"
     },
     {
       "name": "TF-Cholec80",
@@ -33102,37 +28986,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'2D-biopsy slides':1420}\", 'train': '', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "MATCH",
-      "slug": "match-2020",
-      "link": "https://www.aapm.org/GrandChallenge/MATCH/",
-      "organization": null,
-      "challenge_series": "AAPM",
-      "license": null,
-      "release_date": "2020-01",
-      "year": 2020,
-      "dimension": "3D",
-      "modality": [
-        "CT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Estimation"
-      ],
-      "organ": "Lung (Thorax)",
-      "images_valid": 0,
-      "has_labels": false,
-      "num_classes": 3,
-      "tumor": "Lung Tumor",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": null,
-      "data_volume_train": null,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': '', 'train': '', 'val': '', 'test': '', 'label': ''}"
     },
     {
       "name": "ImageCLEF 2015",
@@ -33308,37 +29161,6 @@
       "data_volume_raw": "{'total': \"{'Video-Endoscopy':50}\", 'train': '45', 'val': '', 'test': '5', 'label': ''}"
     },
     {
-      "name": "EndoVis2022-SAR-RARP50",
-      "slug": "endovis2022-sar-rarp50-2022",
-      "link": "https://www.synapse.org/#!Synapse:syn27618412/wiki/616881",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2022",
-      "license": null,
-      "release_date": "2022-06",
-      "year": 2022,
-      "dimension": "video",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": null,
-      "images_valid": 50,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "Prostate Cancer",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 50,
-      "data_volume_train": 40,
-      "data_volume_val": null,
-      "data_volume_test": 10,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'Video-Endoscopy':50}\", 'train': '40', 'val': '', 'test': '10', 'label': ''}"
-    },
-    {
       "name": "EndoVis2022-SimCol-to-3D",
       "slug": "endovis2022-simcol-to-3d-2022",
       "link": "https://www.synapse.org/#!Synapse:syn28548633/wiki/617126",
@@ -33399,38 +29221,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'Video-Endoscopy':137}\", 'train': '125', 'val': '12', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "EndoVis2022-P2ILF",
-      "slug": "endovis2022-p2ilf-2022",
-      "link": "https://p2ilf.grand-challenge.org/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2022",
-      "license": "CC BY-NC-SA",
-      "release_date": "2022-06",
-      "year": 2022,
-      "dimension": "3D, video",
-      "modality": [
-        "Endoscopy",
-        "CT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 25,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 50,
-      "data_volume_train": 10,
-      "data_volume_val": 10,
-      "data_volume_test": 5,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'Video-Endoscopy':25,'3D-CT':25}\", 'train': '10', 'val': '10', 'test': '5', 'label': ''}"
     },
     {
       "name": "EndoVis2020-CATARACTS Workflow",
@@ -34041,40 +29831,6 @@
       "data_volume_raw": "{'total': '', 'train': '', 'val': '', 'test': '', 'label': ''}"
     },
     {
-      "name": "Learn2Reg2022",
-      "slug": "learn2reg2022-2022",
-      "link": "https://learn2reg.grand-challenge.org/",
-      "organization": null,
-      "challenge_series": "MICCAI2022",
-      "license": "pubilc",
-      "release_date": "2022-05",
-      "year": 2022,
-      "dimension": "3D",
-      "modality": [
-        "CT",
-        "MR"
-      ],
-      "modality_secondary": [
-        "T1W"
-      ],
-      "task": [
-        "Registration"
-      ],
-      "organ": "Liver, Spleen, Kidney",
-      "images_valid": 280,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 280,
-      "data_volume_train": 220,
-      "data_volume_val": null,
-      "data_volume_test": 60,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-CT':280}\", 'train': '220', 'val': '', 'test': '60', 'label': ''}"
-    },
-    {
       "name": "PARAGUAY",
       "slug": "paraguay",
       "link": "Dataset from fundus images for the study of diabetic retinopathy (zenodo.org)",
@@ -34320,37 +30076,6 @@
       "data_volume_raw": "{'total': \"{'2D-Endoscopy': 386}\", 'train': '386', 'val': '', 'test': '', 'label': ''}"
     },
     {
-      "name": "EndoVis2023-SIMS",
-      "slug": "endovis2023-sims-2023",
-      "link": "https://www.synapse.org/#!Synapse:syn47193563/wiki/620035",
-      "organization": null,
-      "challenge_series": "MICCAI2023",
-      "license": null,
-      "release_date": "2023-05",
-      "year": 2023,
-      "dimension": "2D",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 0,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": null,
-      "data_volume_train": null,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': '', 'train': '', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
       "name": "HAM10000",
       "slug": "ham10000",
       "link": null,
@@ -34407,35 +30132,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": "{'total': '', 'train': '', 'val': '', 'test': '', 'label': ''}"
-    },
-    {
-      "name": "Eye OCT Datasets",
-      "slug": "eye-oct-datasets",
-      "link": "https://tianchi.aliyun.com/dataset/dataDetail?dataId=90672",
-      "organization": "Tianchi",
-      "challenge_series": "Tianchi",
-      "license": "CC BY-NC-SA 4.0",
-      "release_date": null,
-      "year": null,
-      "dimension": "3D",
-      "modality": [
-        "OCT"
-      ],
-      "modality_secondary": [],
-      "task": [],
-      "organ": "Retina",
-      "images_valid": 148,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "CNV, DME, Drusen",
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 15,
-      "data_volume_train": null,
-      "data_volume_val": null,
-      "data_volume_test": 15,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'3D-OCT':15}\", 'train': '', 'val': '', 'test': '15', 'label': ''}"
     },
     {
       "name": "Chaksu",
@@ -34554,37 +30250,6 @@
       "data_volume_test": 703,
       "data_volume_label": null,
       "data_volume_raw": "{'total': \"{'2D-OCT': 3290}\", 'train': '2118', 'val': '469', 'test': '703', 'label': ''}"
-    },
-    {
-      "name": "iChallenge-PALM19",
-      "slug": "ichallenge-palm19-2019",
-      "link": "https://palm.grand-challenge.org/",
-      "organization": "Baidu, Zhongshan Ophthalmic Center, Sun Yat-sen University, China",
-      "challenge_series": "ISBI2019, Grand Challenge",
-      "license": "CC BY 4.0",
-      "release_date": "2019-01",
-      "year": 2019,
-      "dimension": "2D",
-      "modality": [
-        "Fundus"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Classification"
-      ],
-      "organ": "Retina",
-      "images_valid": 800,
-      "has_labels": true,
-      "num_classes": 2,
-      "tumor": "Pathological Myopia",
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 1200,
-      "data_volume_train": 400,
-      "data_volume_val": 400,
-      "data_volume_test": 400,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Fundus Photography':1200}\", 'train': '400', 'val': '400', 'test': '400', 'label': ''}"
     },
     {
       "name": "iChallenge-GAMMA",
@@ -36447,7 +32112,7 @@
         "Tracking"
       ],
       "organ": null,
-      "images_valid": 0,
+      "images_valid": 2250,
       "has_labels": true,
       "num_classes": null,
       "tumor": null,
@@ -36529,41 +32194,6 @@
       "data_volume_test": 16,
       "data_volume_label": null,
       "data_volume_raw": "{\"total\": 167, \"train\": 167, \"test\": 16}"
-    },
-    {
-      "name": "EndoVis2022-SimCol-to-3D",
-      "slug": "endovis2022-simcol-to-3d-2022",
-      "link": "https://www.synapse.org/#!Synapse:syn28548633/wiki/617126",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI EndoVis",
-      "license": "自定义",
-      "release_date": "2022",
-      "year": 2022,
-      "dimension": "video",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [
-        "Laparoscopy"
-      ],
-      "task": [
-        "Segmentation",
-        "Detection",
-        "Tracking"
-      ],
-      "organ": "Gallbladder (Abdomen)",
-      "images_valid": 0,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": null,
-      "data_volume_train": null,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": null
     },
     {
       "name": "Endovis 2019- SCRE",
@@ -36837,40 +32467,6 @@
       "data_volume_raw": "{\"total\": 2250, \"train\": 1800, \"val\": NA, \"test\": 450, \"label\": \"full\"}"
     },
     {
-      "name": "EndoVis 2017 - RIS",
-      "slug": "endovis-2017-ris-2017",
-      "link": "https://endovissub2017-roboticinstrumentsegmentation.grand-challenge.org/",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI",
-      "license": "自定义",
-      "release_date": "2017",
-      "year": 2017,
-      "dimension": "video",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [
-        "Laparoscopy"
-      ],
-      "task": [
-        "Segmentation",
-        "Detection"
-      ],
-      "organ": null,
-      "images_valid": 225,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 225,
-      "data_volume_train": 180,
-      "data_volume_val": 45,
-      "data_volume_test": 0,
-      "data_volume_label": 225,
-      "data_volume_raw": "{\"total\": 225, \"train\": 180, \"val\": 45, \"test\": 0, \"label\": 225}"
-    },
-    {
       "name": "EndoVis 2017 - KBD",
       "slug": "endovis-2017-kbd-2017",
       "link": "https://endovissub2017-kidneyboundarydetection.grand-challenge.org/",
@@ -36960,7 +32556,7 @@
         "Temporal_Analysis"
       ],
       "organ": "Gallbladder (Abdomen)",
-      "images_valid": 0,
+      "images_valid": 80,
       "has_labels": true,
       "num_classes": null,
       "tumor": null,
@@ -37160,7 +32756,7 @@
         "Tracking"
       ],
       "organ": "Gallbladder (Abdomen)",
-      "images_valid": 0,
+      "images_valid": 30,
       "has_labels": true,
       "num_classes": null,
       "tumor": null,
@@ -37194,7 +32790,7 @@
         "Classification"
       ],
       "organ": "Prostate (Pelvis)",
-      "images_valid": 0,
+      "images_valid": 50,
       "has_labels": true,
       "num_classes": null,
       "tumor": null,
@@ -37256,7 +32852,7 @@
         "Classification"
       ],
       "organ": "Gallbladder (Abdomen)",
-      "images_valid": 0,
+      "images_valid": 13,
       "has_labels": true,
       "num_classes": null,
       "tumor": null,
@@ -38576,7 +34172,7 @@
       ],
       "modality_secondary": [],
       "task": [
-        "Generation of diagnostic report",
+        "诊断报告生成",
         "Classification"
       ],
       "organ": "lung, heart",
@@ -38786,38 +34382,6 @@
       "data_volume_raw": "{'total': \"{'2D-whole-slide images':30}\", 'train': '430', 'val': '', 'test': '', 'label': ''}"
     },
     {
-      "name": "EndoVis 2022 - P2ILF_Video-Endoscopy",
-      "slug": "endovis-2022-p2ilf_video-endoscopy-2022",
-      "link": "https://p2ilf.grand-challenge.org/Data/",
-      "organization": null,
-      "challenge_series": "Grand Challenge",
-      "license": "CC BY-NC-SA 4.0",
-      "release_date": "2022-06",
-      "year": 2022,
-      "dimension": "3D, video",
-      "modality": [
-        "Endoscopy",
-        "CT"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 15,
-      "has_labels": true,
-      "num_classes": 0,
-      "tumor": "Endoscopy",
-      "quality_flag": "high",
-      "impact": "medium",
-      "data_volume_total": 25,
-      "data_volume_train": 17,
-      "data_volume_val": null,
-      "data_volume_test": 8,
-      "data_volume_label": null,
-      "data_volume_raw": "{\"total\": \"{'Video-Endoscopy':25}\", \"train\": \"17\", \"val\": \"None\", \"test\": \"8\", \"label\": \"\"}"
-    },
-    {
       "name": "EndoVis 2015 - IST_Video-Endoscopy",
       "slug": "endovis-2015-ist_video-endoscopy-2015",
       "link": "https://endovissub-instrument.grand-challenge.org/EndoVisSub-Instrument/",
@@ -38929,7 +34493,7 @@
         "Retrieval"
       ],
       "organ": "Whole-body",
-      "images_valid": 0,
+      "images_valid": 8069,
       "has_labels": true,
       "num_classes": null,
       "tumor": "No",
@@ -39074,68 +34638,6 @@
       "data_volume_test": null,
       "data_volume_label": null,
       "data_volume_raw": "{\"total\": \"{'3D-MR':114570}\"}"
-    },
-    {
-      "name": "EndoVis 2022 - SAR-RARP50",
-      "slug": "endovis-2022-sar-rarp50-2022",
-      "link": "https://www.synapse.org/#!Synapse:syn27618412/wiki/616881",
-      "organization": "MICCAI",
-      "challenge_series": "MICCAI2022",
-      "license": null,
-      "release_date": "2022-06",
-      "year": 2022,
-      "dimension": "video",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Segmentation"
-      ],
-      "organ": null,
-      "images_valid": 50,
-      "has_labels": true,
-      "num_classes": 0,
-      "tumor": null,
-      "quality_flag": "high",
-      "impact": "high",
-      "data_volume_total": 50,
-      "data_volume_train": 40,
-      "data_volume_val": null,
-      "data_volume_test": 10,
-      "data_volume_label": null,
-      "data_volume_raw": "{\"total\": \"{'Video-Endoscopy':50}\", \"train\": \"40\", \"val\": \"None\", \"test\": \"10\", \"label\": \"\"}"
-    },
-    {
-      "name": "EndoCV2020-Sub Challenge1",
-      "slug": "endocv2020-sub-challenge1-2019",
-      "link": "https://endocv.grand-challenge.org/",
-      "organization": "Oxford biomedical research centre",
-      "challenge_series": "ISBI2020, Grand Challenge",
-      "license": "CC BY-NC 4.0",
-      "release_date": "2019-11",
-      "year": 2019,
-      "dimension": "2D",
-      "modality": [
-        "Endoscopy"
-      ],
-      "modality_secondary": [],
-      "task": [
-        "Detection"
-      ],
-      "organ": null,
-      "images_valid": 2299,
-      "has_labels": true,
-      "num_classes": null,
-      "tumor": "multi-organ disease",
-      "quality_flag": "medium",
-      "impact": "medium",
-      "data_volume_total": 2299,
-      "data_volume_train": 2299,
-      "data_volume_val": null,
-      "data_volume_test": null,
-      "data_volume_label": null,
-      "data_volume_raw": "{'total': \"{'2D-Endoscopy':2299}\", 'train': '2299', 'val': '', 'test': '', 'label': ''}"
     }
   ]
 }
