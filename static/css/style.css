@@ -1,0 +1,280 @@
+/* =========================
+   Theme variables
+   ========================= */
+   :root {
+    --bg: #f7f8fb;
+    --text: #2f3441;
+    --muted: #6b7280;
+    --border: #e6e8ef;
+    --card: #ffffff;
+  
+    --primary: #0d6efd;
+    --primary-600: #0a58ca;
+    --primary-100: #e9f5ff;
+  
+    --success: #198754;
+    --warning: #ffc107;
+    --danger: #dc3545;
+  
+    --shadow-sm: 0 2px 6px rgba(20, 25, 36, 0.06);
+    --shadow-md: 0 8px 24px rgba(20, 25, 36, 0.10);
+    --shadow-lg: 0 16px 36px rgba(20, 25, 36, 0.14);
+  
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+  
+  /* =========================
+     Global
+     ========================= */
+  html, body {
+    height: 100%;
+  }
+  
+  body {
+    font-family: 'Noto Sans SC', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* =========================
+     Header
+     ========================= */
+  header {
+    background: #111827; /* deep gray for better contrast */
+  }
+  header .header-title {
+    font-weight: 700;
+    font-size: 2.25rem;
+  }
+  
+  /* =========================
+     Logos
+     ========================= */
+  #logos img {
+    max-height: 72px;
+    object-fit: contain;
+    transition: transform .25s ease, filter .25s ease;
+  }
+  #logos img:hover {
+    transform: translateY(-2px) scale(1.04);
+    filter: saturate(1.1);
+  }
+  
+  /* =========================
+     Intro / Hero
+     ========================= */
+  .intro-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 6px solid var(--primary);
+    border-radius: var(--radius);
+    line-height: 1.7;
+    box-shadow: var(--shadow-sm);
+  }
+  .intro-box .lead {
+    font-weight: 400;
+    color: var(--muted);
+  }
+  
+  /* =========================
+     Visual summary image
+     ========================= */
+  #visual-summary .img-fluid {
+    border-radius: var(--radius);
+    transition: transform .25s ease, box-shadow .25s ease;
+    box-shadow: var(--shadow-sm);
+  }
+  #visual-summary .img-fluid:hover {
+    transform: scale(1.01);
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* =========================
+     Filters panel (Mode 2)
+     ========================= */
+  #filters {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: box-shadow .25s ease, transform .25s ease;
+    box-shadow: var(--shadow-sm);
+  }
+  #filters:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
+  }
+  
+  .form-control:focus,
+  .form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 .25rem rgba(13, 110, 253, .15);
+  }
+  
+  /* =========================
+     Charts
+     ========================= */
+  .chart-container {
+    background-color: var(--card);
+    padding: 18px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow .25s ease, transform .25s ease;
+  }
+  .chart-container:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+  
+  .chart-title {
+    color: #495057;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  
+  #phase-charts canvas { /* compact phase charts */
+    max-height: 220px;
+    height: 220px;
+  }
+  
+  canvas:hover {
+    cursor: pointer;
+  }
+  
+  /* =========================
+     Results banner
+     ========================= */
+  #results-count {
+    background-color: var(--primary-100);
+    border: 1px solid #bde0ff;
+    border-left: 6px solid var(--primary);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary-600);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  /* =========================
+     Table
+     ========================= */
+  .table-responsive {
+    background: transparent;
+  }
+  
+  /* Sticky header with subtle backdrop */
+  .table thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #1f2937; /* slate-800 */
+    color: #fff;
+    box-shadow: 0 2px 0 rgba(0,0,0,.06);
+  }
+  .table thead th {
+    border: none;
+    letter-spacing: .2px;
+    font-weight: 600;
+    font-size: .95rem;
+  }
+  
+  /* Row cells */
+  .table td, .table th {
+    padding: 0.9rem 0.75rem;
+    vertical-align: middle;
+  }
+  
+  /* Zebra rows (subtle) */
+  .table-striped > tbody > tr:nth-of-type(odd) > * {
+    --bs-table-accent-bg: #fafbfc;
+  }
+  
+  /* Row hover “lift” effect */
+  .table-hover tbody tr {
+    transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+  }
+  .table-hover tbody tr:hover {
+    background-color: #eef2ff; /* soft indigo tint */
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(17, 24, 39, .10);
+  }
+  
+  /* Links */
+  .table a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--primary-600);
+  }
+  .table a:hover {
+    text-decoration: underline;
+  }
+  
+  /* “Badge” chip styling in Dimension column */
+  .badge.bg-secondary {
+    background: #6c757d;
+    border: 1px solid rgba(255,255,255,.35);
+    font-weight: 600;
+    letter-spacing: .2px;
+    padding: .4em .55em;
+    border-radius: 999px;
+  }
+  
+  /* No results alert */
+  #no-results {
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+  }
+  
+  /* =========================
+     Cards (generic)
+     ========================= */
+  .card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+  }
+  .card:hover {
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* =========================
+     Footer
+     ========================= */
+  footer {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    background: #111827;
+  }
+  
+  /* =========================
+     Utilities
+     ========================= */
+  .rounded-xl { border-radius: 16px !important; }
+  .shadow-soft { box-shadow: var(--shadow-sm) !important; }
+  .shadow-elevate { box-shadow: var(--shadow-md) !important; }
+  
+  /* Make buttons feel a bit crisper on hover */
+  .btn-primary:hover {
+    filter: brightness(0.98) saturate(1.05);
+    box-shadow: 0 6px 16px rgba(13, 110, 253, .25);
+    transform: translateY(-1px);
+    transition: all .18s ease;
+  }
+  .btn-outline-primary:hover {
+    box-shadow: 0 6px 16px rgba(13, 110, 253, .20);
+    transform: translateY(-1px);
+    transition: all .18s ease;
+  }
+  
+  /* Phase 4 small title already in HTML; ensure compact spacing */
+  .summary-title {
+    font-size: .95rem;
+    font-weight: 700;
+  }
+  

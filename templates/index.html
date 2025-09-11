@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0" />
+  <title>Medical Dataset Browser</title>
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Project styles -->
+  <link rel="stylesheet" href="static/css/style.css" />
+
+  <!-- Inline tweaks for header, layout, and compact phase charts -->
+  <style>
+    /* White header with left/right logos */
+    .app-header {
+      background: #ffffff;
+      border-bottom: 1px solid #e6e8ef;
+    }
+    .app-header .header-title {
+      color: #111827;
+      font-weight: 700;
+      font-size: 2rem;
+      margin: 0;
+      line-height: 1.2;
+    }
+    .app-header .subtitle {
+      color: #6b7280;
+      margin: 0;
+    }
+    .app-header img {
+      height: 38px;
+      object-fit: contain;
+    }
+    @media (min-width: 992px) {
+      .app-header img { height: 44px; }
+    }
+
+    /* Put Mode 1 (JSON) and Mode 2 (Quick) on one row */
+    #filter-row .card,
+    #filters { height: 100%; }
+
+    /* Compact phase charts */
+    #phase-charts canvas { max-height: 220px; height: 220px; }
+
+    .summary-title { font-size: .95rem; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <!-- Header (white) with one logo on the left and two on the right) -->
+  <header class="app-header py-3">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between gap-3">
+        <!-- Left: single logo -->
+        <div class="d-flex align-items-center gap-2">
+          <img src="static/img/logo-survey.png" alt="Survey Logo">
+        </div>
+
+        <!-- Center: title -->
+        <div class="text-center flex-grow-1">
+          <h1 class="header-title mb-1">Medical Dataset Browser</h1>
+          <p class="subtitle">Exploring, retrieving and analyzing publicly available medical image datasets</p>
+        </div>
+
+        <!-- Right: two logos -->
+        <div class="d-flex align-items-center gap-3">
+          <img src="static/img/logo-shai.png" alt="Shanghai AI Lab Logo">
+          <img src="static/img/logo-gmai.png" alt="GMAI Logo">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container my-5">
+    <!-- Intro -->
+    <section class="intro-box p-4 p-md-5 mb-5 text-center shadow-sm">
+      <h4 class="mb-3">🎉 Welcome to <strong>Data Is All You Need</strong> 🌟</h4>
+      <p class="lead mb-3">A Comprehensive Survey of Medical Imaging Datasets by GMAI</p>
+      <p>
+        This work constitutes the first large-scale survey of more than 1,000 publicly available medical imaging datasets,
+        with the objective of facilitating the development of robust and generalizable medical foundation models.
+      </p>
+      <p>
+        Medical imaging datasets represent the cornerstone of AI-driven healthcare; however, they remain fragmented, small in scale,
+        and narrowly task-specific. This survey characterizes modalities, clinical tasks, anatomical coverage, and annotation types,
+        and outlines integrative strategies to maximize their collective utility.
+      </p>
+      <p class="mt-4 mb-0">
+        📖 Read more:
+        <a href="#" class="text-decoration-underline">Data Is All You Need: A Survey of 1000+ Open-Access Medical Imaging Datasets for Foundation Model Development</a>
+      </p>
+    </section>
+
+    <!-- Visual summary -->
+    <section id="visual-summary" class="mb-5">
+      <div class="row mb-4">
+        <div class="col-12">
+          <img src="static/img/overview.png" class="img-fluid rounded border" alt="Survey Overview" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters row: Mode 1 (JSON) + Mode 2 (Quick) side by side -->
+    <section id="filter-row" class="mb-5">
+      <div class="row g-4 align-items-stretch">
+        <!-- Mode 1: JSON Rules -->
+        <div class="col-lg-7">
+          <section class="card p-3 p-md-4 h-100">
+            <h5 class="mb-2">Filter Mode 1 · JSON Rules</h5>
+            <p class="text-muted mb-2">
+              Edit the JSON below and run <strong>Phase 1&2</strong> (rule-based filtering). Optionally run <strong>Phase 3&4</strong> (selection + summary).
+            </p>
+            <textarea id="filter-json" class="form-control" rows="12" spellcheck="false">
+{
+  "dimension": "2D",
+  "modalities": ["CT","MR","Fundus"],
+  "task_types": ["classification","segmentation","detection","regression"],
+
+  "license_allowlist": null,
+  "include_unlabeled": true,
+  "prefer_labeled": true,
+  "min_valid_image_n_per_dataset": 100,
+  "anatomy_whitelist": [],
+  "release_date_min": null,
+  "allow_3d_as_2d_sources": false,
+
+  "selection": {
+    "enable": false,
+    "min_datasets_per_modality": 2,
+    "min_orgs_per_modality": 2
+  }
+}
+            </textarea>
+            <div class="mt-3 d-flex flex-wrap gap-2">
+              <button id="btn-apply-phase12" class="btn btn-primary">Run Phase 1&2</button>
+              <button id="btn-apply-phase3" class="btn btn-outline-primary">Run Phase 3&4</button>
+              <span id="json-error" class="text-danger ms-2"></span>
+            </div>
+          </section>
+        </div>
+
+        <!-- Mode 2: Quick Filters -->
+        <div class="col-lg-5">
+          <section id="filters" class="p-4 bg-light rounded-3 shadow-sm h-100">
+            <h6 class="mb-3 text-muted">Filter Mode 2 · Quick Filters (search + dropdowns)</h6>
+            <div class="row g-3 align-items-center">
+              <div class="col-12">
+                <input
+                  type="text"
+                  id="search-box"
+                  class="form-control form-control-lg"
+                  placeholder="🔍 Search by dataset name, organization, or organ..." />
+              </div>
+              <div class="col-12">
+                <select id="dimension-filter" class="form-select">
+                  <option value="">Dimensions</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <select id="modality-filter" class="form-select">
+                  <option value="">Modality</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <select id="task-filter" class="form-select">
+                  <option value="">Task</option>
+                </select>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global charts (overview) -->
+    <section id="charts" class="mb-5">
+      <div class="row text-center">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="chart-container">
+            <h5 class="chart-title">Dimension Distribution</h5>
+            <canvas id="dimension-chart"></canvas>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="chart-container">
+            <h5 class="chart-title">Modality Distribution</h5>
+            <canvas id="modality-chart"></canvas>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12 mb-4">
+          <div class="chart-container">
+            <h5 class="chart-title">Task Distribution</h5>
+            <canvas id="task-chart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase charts (driven by JSON) -->
+    <section id="phase-charts" class="mb-5">
+      <div class="row text-center">
+        <!-- Phase 1&2: Bar + Pie on one row -->
+        <div class="col-md-6 mb-4">
+          <div class="chart-container">
+            <h6 class="chart-title">Phase 1&2 – by Modality (Bar)</h6>
+            <canvas id="phase12-modality-bar"></canvas>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="chart-container">
+            <h6 class="chart-title">Phase 1&2 – Tasks (Doughnut)</h6>
+            <canvas id="phase12-task-pie"></canvas>
+          </div>
+        </div>
+
+        <!-- Phase 3: Bar + Pie on one row -->
+        <div class="col-md-6 mb-4">
+          <div class="chart-container">
+            <h6 class="chart-title">Phase 3 – by Modality (Bar)</h6>
+            <canvas id="phase3-modality-bar"></canvas>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="chart-container">
+            <h6 class="chart-title">Phase 3 – Tasks (Doughnut)</h6>
+            <canvas id="phase3-task-pie"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase 4: Summary table -->
+    <section id="selection-summary" class="mb-5">
+      <div class="card p-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="summary-title">Phase 4 — Summary Table</span>
+          <span class="text-muted" style="font-size:.85rem;">aggregated by modality</span>
+        </div>
+        <div class="table-responsive mt-2">
+          <table class="table table-sm table-striped align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th>Modality</th>
+                <th>#Datasets</th>
+                <th>Total Images</th>
+                <th>#Orgs</th>
+                <th>Selected / All</th>
+              </tr>
+            </thead>
+            <tbody id="stats-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dataset table (infinite scroll) -->
+    <section id="dataset-table">
+      <p id="results-count" class="text-muted" aria-live="polite"></p>
+      <div class="table-responsive">
+        <table class="table table-hover table-striped align-middle">
+          <thead class="table-dark">
+            <tr>
+              <th>Dataset Name</th>
+              <th>Dimension</th>
+              <th>Modality</th>
+              <th>Task</th>
+              <th>Organ</th>
+              <th>Images</th>
+              <th>Release Year</th>
+              <th>Organization</th>
+              <th>License</th>
+              <th>Homepage</th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+
+        <div id="no-results" class="alert alert-warning text-center d-none" role="alert">
+          No matching dataset was found.
+        </div>
+
+        <div id="loading-indicator" class="text-center p-4 d-none" aria-live="polite">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p class="mt-2 mb-0">Load more data...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    <p class="mb-0">&copy; 2025 Medical Dataset Platform</p>
+  </footer>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- App script -->
+  <script src="static/js/script.js"></script>
+</body>
+</html>
