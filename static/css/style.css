@@ -48,13 +48,6 @@
     color: var(--muted);
     margin: 0;
   }
-  .app-header img {
-    height: 38px;
-    object-fit: contain;
-  }
-  @media (min-width: 992px) {
-    .app-header img { height: 44px; }
-  }
   
   /* =========================
      Cards & containers
@@ -83,7 +76,7 @@
     height: 280px;
   }
   
-  /* Phase charts compact height */
+  /* Phase charts compact height - will fit 4 in a row on xl */
   #phase-charts canvas {
     max-height: 220px;
     height: 220px;
@@ -109,7 +102,7 @@
   }
   
   /* =========================
-     Logos row (overview images)
+     Overview images
      ========================= */
   #visual-summary .img-fluid {
     transition: transform .25s ease, box-shadow .25s ease;
@@ -143,7 +136,7 @@
     border-radius: .75rem;
   }
   
-  /* Phase running highlight (JS adds these classes) */
+  /* Phase running highlight (JS adds these classes and keeps while running) */
   #filter-json.phase12-running {
     border-left: 6px solid var(--primary);
     box-shadow: 0 0 0 3px rgba(13,110,253,.12), 0 12px 28px rgba(13,110,253,.15);
@@ -153,7 +146,7 @@
     box-shadow: 0 0 0 3px rgba(111,66,193,.12), 0 12px 28px rgba(111,66,193,.15);
   }
   
-  /* Small helper text under JSON (optional) */
+  /* Small helper text under JSON */
   .json-help {
     background: #f9fafb;
     border: 1px dashed var(--border);
@@ -256,6 +249,10 @@
     font-size: .95rem;
     font-weight: 700;
   }
+  #selection-summary .summary-card {
+    border-left: 6px solid var(--accent);
+    background: linear-gradient(180deg, #ffffff 0%, #fbfbff 100%);
+  }
   #selection-summary table thead th {
     font-size: .85rem;
   }
@@ -303,13 +300,13 @@
     color: var(--muted) !important;
   }
   
-  /* Optional: compact selects in Mode 2 (look nicer on small screens) */
+  /* Compact selects in Mode 2 */
   #filters .form-select,
   #filters .form-control {
     border-radius: .6rem;
   }
   
-  /* Optional: make JSON/filters cards equal height on large screens */
+  /* Equal height on large screens */
   @media (min-width: 992px) {
     #filter-row .card,
     #filters { height: 100%; }

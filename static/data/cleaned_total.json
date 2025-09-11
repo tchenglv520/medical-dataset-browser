@@ -3052,7 +3052,7 @@
       "year": 2020,
       "dimension": "3D",
       "modality": [
-        "Pet_Ct"
+        "PET"
       ],
       "modality_secondary": [
         "T2W",
@@ -3214,7 +3214,7 @@
       "dimension": "3D",
       "modality": [
         "MR",
-        "Pet_Mr"
+        "PET"
       ],
       "modality_secondary": [
         "T1",
@@ -3249,7 +3249,7 @@
       "dimension": "3D",
       "modality": [
         "MR",
-        "Pet_Mr"
+        "PET"
       ],
       "modality_secondary": [
         "T2"
@@ -5022,7 +5022,7 @@
       "dimension": "3D",
       "modality": [
         "CT",
-        "Pet_Ct"
+        "PET"
       ],
       "modality_secondary": [],
       "task": [
@@ -6197,7 +6197,7 @@
       "dimension": "3D",
       "modality": [
         "MR",
-        "Pet_Mr"
+        "PET"
       ],
       "modality_secondary": [
         "Smri",
@@ -11851,7 +11851,7 @@
       "year": 2021,
       "dimension": "3D",
       "modality": [
-        "Pet_Ct"
+        "PET"
       ],
       "modality_secondary": [],
       "task": [
@@ -13564,10 +13564,6 @@
         "PET",
         "Endoscopy",
         "Dermoscopy",
-        "Others",
-        "Eeg",
-        "Ecg",
-        "Emg",
         "Microscopy",
         "Fundus"
       ],
@@ -29040,9 +29036,6 @@
         "PET",
         "Endoscopy",
         "Dermoscopy",
-        "Eeg",
-        "Ecg",
-        "Emg",
         "Microscopy",
         "Fundus"
       ],
@@ -32980,8 +32973,7 @@
       "year": null,
       "dimension": "video",
       "modality": [
-        "Infrared",
-        "Rgb"
+        "Infrared"
       ],
       "modality_secondary": [],
       "task": [
@@ -34172,7 +34164,7 @@
       ],
       "modality_secondary": [],
       "task": [
-        "诊断报告生成",
+        "Generation of diagnostic report",
         "Classification"
       ],
       "organ": "lung, heart",
