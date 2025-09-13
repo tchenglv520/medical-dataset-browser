@@ -92,7 +92,10 @@
         <!-- Mode 1: JSON Rules -->
         <div class="col-lg-7">
           <section class="card p-3 p-md-4 h-100">
-            <h5 class="mb-2">Filter Mode 1 · JSON Rules</h5>
+            <div class="d-flex align-items-center justify-content-between">
+              <h5 class="mb-2">Filter Mode 1 · JSON Rules</h5>
+              <button id="btn-clear-mode1" class="btn btn-sm btn-outline-danger">Clear filters</button>
+            </div>
             <p class="text-muted mb-2">
               Edit the JSON below and run <strong>Phase 1&2</strong> (rule-based filtering). Optionally run <strong>Phase 3&4</strong> (selection + summary).
             </p>
@@ -159,7 +162,10 @@
         <!-- Mode 2: Quick Filters -->
         <div class="col-lg-5">
           <section id="filters" class="p-4 bg-light rounded-3 shadow-sm h-100">
-            <h6 class="mb-3 text-muted">Filter Mode 2 · Quick Filters (search + dropdowns)</h6>
+            <div class="d-flex align-items-center justify-content-between">
+              <h6 class="mb-3 text-muted">Filter Mode 2 · Quick Filters (search + dropdowns)</h6>
+              <button id="btn-clear-mode2" class="btn btn-sm btn-outline-danger">Clear filters</button>
+            </div>
             <div class="row g-3 align-items-center">
               <div class="col-12">
                 <input

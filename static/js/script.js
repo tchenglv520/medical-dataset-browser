@@ -25,8 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let baseDatasets = [];           // Base for the table: either all or JSON-filtered
   let currentFilteredData = [];    // baseDatasets + quick filters
   const charts = {};
-  const chartClickState = {};      // remembers clicked slice per doughnut chart
+  const chartClickState = {};
   let baseLabel = 'All datasets';  // shown in the banner as the source
+  let activeMode = 'none';         // 'mode1' or 'mode2' or 'none'
 
   // Infinite scroll
   let currentPage = 1;
@@ -48,6 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const jsonTextarea = document.getElementById('filter-json');
   const btnPhase12 = document.getElementById('btn-apply-phase12');
   const btnPhase34 = document.getElementById('btn-apply-phase3'); // "Run Phase 3&4"
+  const btnClearMode1 = document.getElementById('btn-clear-mode1');
+  const btnClearMode2 = document.getElementById('btn-clear-mode2');
   const jsonError  = document.getElementById('json-error');
 
   // Phase canvases
@@ -128,7 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
         data_volume_total: sanitizeNumber(d.data_volume_total ?? d.images ?? d.number)
       }));
 
-      // default base = all
       baseDatasets = allDatasets.slice();
       initialize();
     } catch (err) {
@@ -162,11 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function populateFiltersFromBase() {
-    // Dimensions: fixed 3 options (already in HTML)
-    // Modalities & Tasks: sort by frequency in baseDatasets (desc)
     const modCounts = countFieldInBase('modality');
     const taskCounts = countFieldInBase('task');
-
     fillSelectSorted(modalityFilter, modCounts, 'Modality');
     fillSelectSorted(taskFilter, taskCounts, 'Task');
   }
@@ -174,7 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function fillSelectSorted(selectEl, countsObj, placeholder) {
     if (!selectEl) return;
     const current = selectEl.value;
-    // Clear all except first placeholder
     selectEl.innerHTML = '';
     const ph = document.createElement('option');
     ph.value = '';
@@ -192,7 +190,6 @@ document.addEventListener('DOMContentLoaded', () => {
       selectEl.appendChild(opt);
     });
 
-    // Restore previous selection if still present
     if (current && entries.includes(current)) {
       selectEl.value = current;
     }
@@ -277,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 150);
   }
 
-  // ===== Quick filter logic (search + dropdowns) on top of baseDatasets =====
+  // ===== Quick filter logic =====
   function applyFilters() {
     const searchTerm = (searchBox?.value || '').toLowerCase().trim();
     const selectedDimension = dimensionFilter?.value || '';
@@ -288,14 +285,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const source = baseDatasets.length ? baseDatasets : allDatasets;
 
     currentFilteredData = source.filter(d => {
-      // search
       const matchesSearch =
         !searchTerm ||
         (d.name && d.name.toLowerCase().includes(searchTerm)) ||
         (d.organization && d.organization.toLowerCase().includes(searchTerm)) ||
         (d.organ && d.organ.toLowerCase().includes(searchTerm));
 
-      // dimension
       let matchesDimension = true;
       if (selectedDimension) {
         const dims = d.dimension.map(x => String(x).toLowerCase());
@@ -312,7 +307,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      // modality, task
       const matchesModality  = !selectedModality  || d.modality.includes(selectedModality);
       const matchesTask      = !selectedTask      || d.task.includes(selectedTask);
 
@@ -323,7 +317,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return sum + (Number.isFinite(ds.data_volume_total) ? ds.data_volume_total : 0);
     }, 0);
 
-    // reset table page
     tableBody.innerHTML = '';
     currentPage = 1;
 
@@ -337,18 +330,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
     noResultsDiv?.classList.toggle('d-none', currentFilteredData.length > 0);
 
-    // Keep the global overview in sync with what's visible
+    // Keep global charts in sync with what's visible
     renderAllCharts(currentFilteredData.length ? currentFilteredData : allDatasets);
 
     loadMoreData();
   }
 
+  // ===== Mode clear helpers =====
+  function clearMode2Filters() {
+    if (searchBox) searchBox.value = '';
+    if (dimensionFilter) dimensionFilter.value = '';
+    if (modalityFilter) modalityFilter.value = '';
+    if (taskFilter) taskFilter.value = '';
+    if (includeMixedDim) includeMixedDim.checked = true;
+  }
+
+  function destroyChart(id) {
+    if (charts[id]) {
+      try { charts[id].destroy(); } catch {}
+      delete charts[id];
+    }
+  }
+
+  function clearPhaseOutputs() {
+    destroyChart('phase12-modality-bar');
+    destroyChart('phase12-task-pie');
+    destroyChart('phase3-modality-bar');
+    destroyChart('phase3-task-pie');
+    if (statsBody) statsBody.innerHTML = '';
+  }
+
+  function switchToMode2IfNeeded() {
+    if (activeMode !== 'mode2') {
+      // Clear Mode 1 effects and return to all datasets
+      baseDatasets = allDatasets.slice();
+      baseLabel = 'All datasets';
+      jsonTextarea?.classList.remove('phase12-running', 'phase34-running');
+      clearPhaseOutputs();
+      populateFiltersFromBase(); // resort options against all
+      activeMode = 'mode2';
+    }
+  }
+
+  function switchToMode1() {
+    // When using Mode 1, automatically clear Mode 2 filters
+    clearMode2Filters();
+    activeMode = 'mode1';
+  }
+
+  // ===== Event listeners =====
   function setupEventListeners() {
-    searchBox?.addEventListener('input', applyFilters);
-    dimensionFilter?.addEventListener('change', applyFilters);
-    includeMixedDim?.addEventListener('change', applyFilters);
-    modalityFilter?.addEventListener('change', applyFilters);
-    taskFilter?.addEventListener('change', applyFilters);
+    // Quick filters — on first interaction, auto switch to Mode 2 (and clear Mode 1)
+    const quickInputs = [searchBox, dimensionFilter, includeMixedDim, modalityFilter, taskFilter];
+    quickInputs.forEach(el => {
+      el?.addEventListener('input', () => { switchToMode2IfNeeded(); applyFilters(); });
+      el?.addEventListener('change', () => { switchToMode2IfNeeded(); applyFilters(); });
+    });
 
     window.addEventListener('scroll', () => {
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500) {
@@ -356,12 +393,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // JSON-driven phases: update baseDatasets so the table + banner follow JSON filters
+    // JSON-driven phases
     btnPhase12?.addEventListener('click', () => {
       const cfg = readFilterJson();
       if (!cfg) return;
 
-      // highlight state: keep until another phase is pressed
+      switchToMode1();
+
       jsonTextarea.classList.add('phase12-running');
       jsonTextarea.classList.remove('phase34-running');
 
@@ -370,35 +408,61 @@ document.addEventListener('DOMContentLoaded', () => {
       baseDatasets = p12.slice();
       baseLabel = 'JSON Phase 1&2';
 
-      // After base changed, rebuild quick filter options sorted by new base
       populateFiltersFromBase();
       applyFilters();
 
       drawPhaseCharts('phase12', p12, cfg);
-      updateSummaryTable(p12, p12, cfg); // Phase 4 (ratio=1.000 if Phase 3 not applied)
+      updateSummaryTable(p12, p12, cfg);
     });
 
     btnPhase34?.addEventListener('click', () => {
       const cfg = readFilterJson();
       if (!cfg) return;
 
-      // highlight state: keep until another phase is pressed
+      switchToMode1();
+
       jsonTextarea.classList.remove('phase12-running');
       jsonTextarea.classList.add('phase34-running');
 
       const p12 = runPhase12(allDatasets, cfg);
-      const p3  = runPhase3(p12, cfg, true); // selection enabled
+      const p3  = runPhase3(p12, cfg, true);
 
       baseDatasets = p3.slice();
       baseLabel = 'JSON Phase 3&4';
 
-      // After base changed, rebuild quick filter options sorted by new base
       populateFiltersFromBase();
       applyFilters();
 
       drawPhaseCharts('phase12', p12, cfg);
       drawPhaseCharts('phase3',  p3,  cfg);
       updateSummaryTable(p12, p3, cfg);
+    });
+
+    // Clear buttons
+    btnClearMode1?.addEventListener('click', () => {
+      // Clear Mode 1 effects and return to All datasets
+      jsonTextarea?.classList.remove('phase12-running', 'phase34-running');
+      baseDatasets = allDatasets.slice();
+      baseLabel = 'All datasets';
+      clearPhaseOutputs();
+      populateFiltersFromBase();
+      activeMode = 'none';
+      applyFilters();
+    });
+
+    btnClearMode2?.addEventListener('click', () => {
+      clearMode2Filters();
+      // If the user is using Mode 2, keep baseDatasets as-is;
+      // but if we previously switched away from All (mode1), we restore All for clarity.
+      if (activeMode !== 'mode2') {
+        baseDatasets = allDatasets.slice();
+        baseLabel = 'All datasets';
+        jsonTextarea?.classList.remove('phase12-running', 'phase34-running');
+        clearPhaseOutputs();
+        populateFiltersFromBase();
+        activeMode = 'mode2';
+      }
+      applyFilters();
     });
   }
 
@@ -425,7 +489,6 @@ document.addEventListener('DOMContentLoaded', () => {
     createOrUpdateDonutChart(canvasId, labels, data, dimensionFilter, {
       compact: false,
       onBeforeApplyFilter: () => {
-        // To avoid count mismatch: when clicking the dimension chart, enable "Include mixed".
         if (includeMixedDim) includeMixedDim.checked = true;
       }
     });
@@ -504,6 +567,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (filterElement) {
             if (onBeforeApplyFilter) onBeforeApplyFilter();
             filterElement.value = (clickedLabel === 'Other') ? '' : clickedLabel;
+            switchToMode2IfNeeded(); // clicking overview chart implies using quick filters
             applyFilters();
             document.getElementById('filters')?.scrollIntoView({ behavior: 'smooth' });
           }
@@ -562,7 +626,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const allow3dAs2d      = cfg.allow_3d_as_2d_sources === true;
 
     return datasets.filter(d => {
-      // dimension
       if (wantedDimension) {
         const dims = d.dimension.map(x => String(x).toLowerCase());
         const is2D = dims.some(x => x.includes('2d'));
@@ -577,37 +640,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      // modalities
       if (wantedModalities && wantedModalities.length) {
         const mods = d.modality.map(x => String(x).toLowerCase());
         if (!intersectNonEmpty(mods, wantedModalities)) return false;
       }
 
-      // tasks
       if (wantedTasks && wantedTasks.length) {
         const tasks = d.task.map(x => String(x).toLowerCase());
         if (!intersectNonEmpty(tasks, wantedTasks)) return false;
       }
 
-      // license
       if (licenseAllow && licenseAllow.length) {
         const lic = String(d.license || '').toLowerCase();
         if (!licenseAllow.includes(lic)) return false;
       }
 
-      // unlabeled (approximation)
       if (!includeUnlabeled && d.task.length === 0) return false;
 
-      // min images
       if (minImages != null && !(d.data_volume_total >= minImages)) return false;
 
-      // anatomy whitelist (substring)
       if (anatomyWhitelist && anatomyWhitelist.length) {
         const organ = String(d.organ || '').toLowerCase();
         if (!anatomyWhitelist.some(a => organ.includes(a))) return false;
       }
 
-      // release year min
       if (releaseMin != null) {
         const y = getYear(d.year);
         if (y == null || y < releaseMin) return false;
@@ -627,8 +683,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const allowedMods = Array.isArray(cfg.modalities) ? new Set(cfg.modalities.map(s => String(s))) : null;
 
-    // Aggregate by modality
-    const modalityMap = {}; // key -> { datasets:Set, orgs:Set }
+    const modalityMap = {};
     phase12Datasets.forEach(d => {
       const org = d.organization || 'Unknown';
       d.modality.forEach(m => {
@@ -741,6 +796,13 @@ document.addEventListener('DOMContentLoaded', () => {
       frag.appendChild(tr);
     });
     statsBody.appendChild(frag);
+  }
+
+  // ===== Global charts renderers =====
+  function renderAllCharts(datasets) {
+    renderDimensionChart(datasets);
+    renderTopNChart('modality-chart', 'modality', datasets, modalityFilter, 8);
+    renderTopNChart('task-chart', 'task', datasets, taskFilter, 8);
   }
 
   // ===== Kickoff =====
