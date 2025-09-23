@@ -27,8 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const charts = {};
   const chartClickState = {};
   let baseLabel = 'All datasets';  // shown in the banner as the source
-  let activeMode = 'none';         // 'mode1' or 'mode2' or 'none'
-  let lastJsonCfg = null;          // keep last JSON config to align counts with Summary table
+  let activeMode = 'none';         // 'mode1' (JSON) | 'mode2' (Quick) | 'none'
+  let lastJsonCfg = null;          // last JSON config
+  let lastSummaryTotals = null;    // { totalRows, totalImages } computed by summary table (JSON mode)
 
   // Infinite scroll
   let currentPage = 1;
@@ -271,35 +272,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 150);
   }
 
-  // ===== Helpers for banner–summary consistency =====
-  // Count with the same logic as Summary Table:
-  // - per-modality unique-by-name
-  // - totals are the sum across modalities (no cross-modality dedupe)
-  function computeSummaryLikeTotals(rows, cfg) {
-    const allowedMods = Array.isArray(cfg?.modalities)
-      ? new Set(cfg.modalities.map(String))
-      : null;
-
-    const byMod = {}; // mod => {names:Set, images:number}
-    rows.forEach(d => {
-      d.modality.forEach(m => {
-        const mod = String(m);
-        if (allowedMods && !allowedMods.has(mod)) return;
-        if (!byMod[mod]) byMod[mod] = { names: new Set(), images: 0 };
-        byMod[mod].names.add(d.name || '(unknown)');
-        byMod[mod].images += Number.isFinite(d.data_volume_total) ? d.data_volume_total : 0;
-      });
-    });
-
-    let datasetTotal = 0;
-    let imagesTotal = 0;
-    Object.values(byMod).forEach(v => {
-      datasetTotal += v.names.size;
-      imagesTotal  += v.images;
-    });
-    return { datasetTotal, imagesTotal };
-  }
-
   // ===== Quick filter logic =====
   function applyFilters() {
     const searchTerm = (searchBox?.value || '').toLowerCase().trim();
@@ -326,11 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (dims.some(x => x.includes('video'))) normalize.add('video');
 
         const want = selectedDimension.toLowerCase();
-        if (allowMixed) {
-          matchesDimension = normalize.has(want);
-        } else {
-          matchesDimension = (normalize.size === 1 && normalize.has(want));
-        }
+        matchesDimension = allowMixed ? normalize.has(want) : (normalize.size === 1 && normalize.has(want));
       }
 
       const matchesModality  = !selectedModality  || d.modality.includes(selectedModality);
@@ -345,26 +313,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ==== Banner text ====
     let bannerText = '';
-    if (activeMode === 'mode1') {
-      // JSON mode: follow Summary Table counting logic (guaranteed consistent)
-      const { datasetTotal, imagesTotal } = computeSummaryLikeTotals(baseDatasets, lastJsonCfg);
+    if (activeMode === 'mode1' && lastSummaryTotals) {
+      // JSON mode —— 强制与 Summary 表一致（按行计数，不去重）
+      const { totalRows, totalImages } = lastSummaryTotals;
       bannerText =
-        datasetTotal > 0
-          ? `Found ${datasetTotal} datasets, with approximately ${imagesTotal.toLocaleString()} images in total. [via: ${baseLabel}]`
-          : `Found 0 matching datasets. [via: ${baseLabel}]`;
+        totalRows > 0
+          ? `Found ${totalRows} datasets, with approximately ${totalImages.toLocaleString()} images in total. [via: ${baseLabel}]`
+          : `Found 0 datasets. [via: ${baseLabel}]`;
     } else {
-      // Quick filters: count rows, sum images by rows
+      // Quick filters：行数与逐行和
       const rowCount = currentFilteredData.length;
-      const imagesSum = currentFilteredData.reduce((s, ds) => {
-        return s + (Number.isFinite(ds.data_volume_total) ? ds.data_volume_total : 0);
-      }, 0);
+      const imagesSum = currentFilteredData.reduce((s, ds) => s + (Number.isFinite(ds.data_volume_total) ? ds.data_volume_total : 0), 0);
       const anyQuick = !!searchTerm || !!selectedDimension || !!selectedModality || !!selectedTask || !allowMixed;
       const via = anyQuick ? `${baseLabel} + Quick filters` : baseLabel;
 
       bannerText =
         rowCount > 0
           ? `Found ${rowCount} datasets, with approximately ${imagesSum.toLocaleString()} images in total. [via: ${via}]`
-          : `Found 0 matching datasets. [via: ${via}]`;
+          : `Found 0 datasets. [via: ${via}]`;
     }
 
     resultsCount.textContent = bannerText;
@@ -398,6 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
     destroyChart('phase3-modality-bar');
     destroyChart('phase3-task-pie');
     if (statsBody) statsBody.innerHTML = '';
+    lastSummaryTotals = null;
   }
 
   function switchToMode2IfNeeded() {
@@ -454,7 +421,9 @@ document.addEventListener('DOMContentLoaded', () => {
       applyFilters();
 
       drawPhaseCharts('phase12', p12, cfg);
-      updateSummaryTable(p12, p12, cfg);
+      updateSummaryTable(p12, p12, cfg); // will set lastSummaryTotals
+      // 重新同步一次 banner（此时 lastSummaryTotals 已更新）
+      applyFilters();
     });
 
     btnPhase34?.addEventListener('click', () => {
@@ -478,12 +447,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       drawPhaseCharts('phase12', p12, cfg);
       drawPhaseCharts('phase3',  p3,  cfg);
-      updateSummaryTable(p12, p3, cfg);
+      updateSummaryTable(p12, p3, cfg); // will set lastSummaryTotals
+      applyFilters();
     });
 
     // Clear buttons
     btnClearMode1?.addEventListener('click', () => {
-      // Clear Mode 1 effects and return to All datasets
       jsonTextarea?.classList.remove('phase12-running', 'phase34-running');
       baseDatasets = allDatasets.slice();
       baseLabel = 'All datasets';
@@ -496,7 +465,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btnClearMode2?.addEventListener('click', () => {
       clearMode2Filters();
-      // If not in Mode 2, restore All datasets baseline
       if (activeMode !== 'mode2') {
         baseDatasets = allDatasets.slice();
         baseLabel = 'All datasets';
@@ -749,7 +717,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return selected;
   }
 
-  // ===== Phase charts (count only JSON-allowed modalities/tasks) =====
+  // ===== Phase charts =====
   function drawPhaseCharts(tag, dataArr, cfg) {
     const wantedMods = Array.isArray(cfg?.modalities)
       ? cfg.modalities.map(s => String(s).toLowerCase())
@@ -787,52 +755,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ===== Phase 4 — Summary Table =====
+  // ===== Phase 4 — Summary Table (NO DEDUP; row-count per modality) =====
   function updateSummaryTable(phase12Arr, phase3Arr, cfg) {
     if (!statsBody) return;
 
     const allowedMods = Array.isArray(cfg?.modalities) ? new Set(cfg.modalities.map(String)) : null;
 
-    const allByMod = {};
+    const byMod = {}; // mod => { rows:number, images:number, orgs:Set }
     phase12Arr.forEach(d => {
       d.modality.forEach(m => {
-        if (allowedMods && !allowedMods.has(String(m))) return;
-        const key = String(m);
-        (allByMod[key] ||= { datasets: new Set(), images: 0, orgs: new Set() });
-        allByMod[key].datasets.add(d.name);
-        allByMod[key].images += Number.isFinite(d.data_volume_total) ? d.data_volume_total : 0;
-        allByMod[key].orgs.add(d.organization || 'Unknown');
+        const mod = String(m);
+        if (allowedMods && !allowedMods.has(mod)) return;
+        (byMod[mod] ||= { rows: 0, images: 0, orgs: new Set() });
+        byMod[mod].rows += 1; // 不去重：每行+1
+        byMod[mod].images += Number.isFinite(d.data_volume_total) ? d.data_volume_total : 0;
+        byMod[mod].orgs.add(d.organization || 'Unknown');
       });
     });
 
-    const selByMod = {};
-    phase3Arr.forEach(d => {
-      d.modality.forEach(m => {
-        if (allowedMods && !allowedMods.has(String(m))) return;
-        const key = String(m);
-        (selByMod[key] ||= { datasets: new Set() });
-        selByMod[key].datasets.add(d.name);
-      });
-    });
+    const rows = Object.keys(byMod).map(mod => {
+      const v = byMod[mod];
+      return {
+        modality: mod,
+        rows: v.rows,
+        images: v.images,
+        orgs: v.orgs.size,
+        ratio: 1.0  // 在不去重方案下，这里保持 1.0（或根据需要计算）
+      };
+    }).sort((a, b) => b.rows - a.rows);
 
-    const rows = Object.keys(allByMod).map(mod => {
-      const all = allByMod[mod];
-      const allDatasetsCount = all.datasets.size;
-      const allImages = all.images;
-      const allOrgs = all.orgs.size;
-      const selCount = selByMod[mod]?.datasets.size ?? allDatasetsCount;
-      const ratio = allDatasetsCount > 0 ? (selCount / allDatasetsCount) : 0;
-      return { modality: mod, datasets: allDatasetsCount, images: allImages, orgs: allOrgs, ratio };
-    });
-
-    rows.sort((a, b) => b.datasets - a.datasets);
-
+    // Render table
     statsBody.innerHTML = '';
     const frag = document.createDocumentFragment();
     rows.forEach(r => {
       const tr = document.createElement('tr');
       const tdM = document.createElement('td'); tdM.textContent = r.modality;
-      const tdD = document.createElement('td'); tdD.textContent = r.datasets.toLocaleString();
+      const tdD = document.createElement('td'); tdD.textContent = r.rows.toLocaleString();   // #Datasets -> 行数
       const tdI = document.createElement('td'); tdI.textContent = r.images.toLocaleString();
       const tdO = document.createElement('td'); tdO.textContent = r.orgs.toLocaleString();
       const tdR = document.createElement('td'); tdR.textContent = r.ratio.toFixed(3);
@@ -840,6 +798,11 @@ document.addEventListener('DOMContentLoaded', () => {
       frag.appendChild(tr);
     });
     statsBody.appendChild(frag);
+
+    // Save totals for banner —— 强制与 Summary 表一致
+    const totalRows   = rows.reduce((s, r) => s + r.rows, 0);
+    const totalImages = rows.reduce((s, r) => s + r.images, 0);
+    lastSummaryTotals = { totalRows, totalImages };
   }
 
   // ===== Global charts renderers =====
