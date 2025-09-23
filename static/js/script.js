@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const chartClickState = {};
   let baseLabel = 'All datasets';  // shown in the banner as the source
   let activeMode = 'none';         // 'mode1' or 'mode2' or 'none'
+  let lastJsonCfg = null;          // keep last JSON config to align counts with Summary table
 
   // Infinite scroll
   let currentPage = 1;
@@ -93,10 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!a || !b) return false;
     const setB = new Set(b.map(x => String(x).toLowerCase()));
     return a.some(x => setB.has(String(x).toLowerCase()));
-  }
-
-  function uniq(arr) {
-    return Array.from(new Set(arr));
   }
 
   function readFilterJson() {
@@ -274,27 +271,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 150);
   }
 
-  // ===== Quick filter logic =====
+  // ===== Helpers for banner–summary consistency =====
+  // Count with the same logic as Summary Table:
+  // - per-modality unique-by-name
+  // - totals are the sum across modalities (no cross-modality dedupe)
+  function computeSummaryLikeTotals(rows, cfg) {
+    const allowedMods = Array.isArray(cfg?.modalities)
+      ? new Set(cfg.modalities.map(String))
+      : null;
 
-  // NEW: compute unique dataset stats by name (avoid multi-row double count)
-  function computeUniqueStats(rows) {
-    const map = new Map(); // name -> {imagesMax}
+    const byMod = {}; // mod => {names:Set, images:number}
     rows.forEach(d => {
-      const key = d.name || '(unknown)';
-      const v = Number.isFinite(d.data_volume_total) ? d.data_volume_total : 0;
-      if (!map.has(key)) {
-        map.set(key, { imagesMax: v });
-      } else {
-        if (v > map.get(key).imagesMax) {
-          map.get(key).imagesMax = v;
-        }
-      }
+      d.modality.forEach(m => {
+        const mod = String(m);
+        if (allowedMods && !allowedMods.has(mod)) return;
+        if (!byMod[mod]) byMod[mod] = { names: new Set(), images: 0 };
+        byMod[mod].names.add(d.name || '(unknown)');
+        byMod[mod].images += Number.isFinite(d.data_volume_total) ? d.data_volume_total : 0;
+      });
     });
-    const uniqueCount = map.size;
-    const totalImagesUnique = Array.from(map.values()).reduce((s, o) => s + o.imagesMax, 0);
-    return { uniqueCount, totalImagesUnique };
+
+    let datasetTotal = 0;
+    let imagesTotal = 0;
+    Object.values(byMod).forEach(v => {
+      datasetTotal += v.names.size;
+      imagesTotal  += v.images;
+    });
+    return { datasetTotal, imagesTotal };
   }
 
+  // ===== Quick filter logic =====
   function applyFilters() {
     const searchTerm = (searchBox?.value || '').toLowerCase().trim();
     const selectedDimension = dimensionFilter?.value || '';
@@ -333,23 +339,36 @@ document.addEventListener('DOMContentLoaded', () => {
       return matchesSearch && matchesDimension && matchesModality && matchesTask;
     });
 
-    // === NEW: banner now uses UNIQUE dataset count ===
-    const { uniqueCount, totalImagesUnique } = computeUniqueStats(currentFilteredData);
-    const rowCount = currentFilteredData.length;
-
     // Reset and render table
     tableBody.innerHTML = '';
     currentPage = 1;
 
-    const anyQuick = !!searchTerm || !!selectedDimension || !!selectedModality || !!selectedTask || !allowMixed;
-    const via = anyQuick ? `${baseLabel} + Quick filters` : baseLabel;
+    // ==== Banner text ====
+    let bannerText = '';
+    if (activeMode === 'mode1') {
+      // JSON mode: follow Summary Table counting logic (guaranteed consistent)
+      const { datasetTotal, imagesTotal } = computeSummaryLikeTotals(baseDatasets, lastJsonCfg);
+      bannerText =
+        datasetTotal > 0
+          ? `Found ${datasetTotal} datasets, with approximately ${imagesTotal.toLocaleString()} images in total. [via: ${baseLabel}]`
+          : `Found 0 matching datasets. [via: ${baseLabel}]`;
+    } else {
+      // Quick filters: count rows, sum images by rows
+      const rowCount = currentFilteredData.length;
+      const imagesSum = currentFilteredData.reduce((s, ds) => {
+        return s + (Number.isFinite(ds.data_volume_total) ? ds.data_volume_total : 0);
+      }, 0);
+      const anyQuick = !!searchTerm || !!selectedDimension || !!selectedModality || !!selectedTask || !allowMixed;
+      const via = anyQuick ? `${baseLabel} + Quick filters` : baseLabel;
 
-    resultsCount.textContent =
-      uniqueCount > 0
-        ? `Found ${uniqueCount} unique datasets (${rowCount} rows), with approximately ${totalImagesUnique.toLocaleString()} images in total. [via: ${via}]`
-        : `Found 0 matching datasets. [via: ${via}]`;
+      bannerText =
+        rowCount > 0
+          ? `Found ${rowCount} datasets, with approximately ${imagesSum.toLocaleString()} images in total. [via: ${via}]`
+          : `Found 0 matching datasets. [via: ${via}]`;
+    }
 
-    noResultsDiv?.classList.toggle('d-none', uniqueCount > 0);
+    resultsCount.textContent = bannerText;
+    noResultsDiv?.classList.toggle('d-none', currentFilteredData.length > 0);
 
     // Keep global charts in sync with what's visible
     renderAllCharts(currentFilteredData.length ? currentFilteredData : allDatasets);
@@ -386,6 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Clear Mode 1 effects and return to all datasets
       baseDatasets = allDatasets.slice();
       baseLabel = 'All datasets';
+      lastJsonCfg = null;
       jsonTextarea?.classList.remove('phase12-running', 'phase34-running');
       clearPhaseOutputs();
       populateFiltersFromBase(); // resort options against all
@@ -420,6 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!cfg) return;
 
       switchToMode1();
+      lastJsonCfg = cfg;
 
       jsonTextarea.classList.add('phase12-running');
       jsonTextarea.classList.remove('phase34-running');
@@ -441,6 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!cfg) return;
 
       switchToMode1();
+      lastJsonCfg = cfg;
 
       jsonTextarea.classList.remove('phase12-running');
       jsonTextarea.classList.add('phase34-running');
@@ -465,6 +487,7 @@ document.addEventListener('DOMContentLoaded', () => {
       jsonTextarea?.classList.remove('phase12-running', 'phase34-running');
       baseDatasets = allDatasets.slice();
       baseLabel = 'All datasets';
+      lastJsonCfg = null;
       clearPhaseOutputs();
       populateFiltersFromBase();
       activeMode = 'none';
@@ -473,11 +496,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btnClearMode2?.addEventListener('click', () => {
       clearMode2Filters();
-      // If the user is using Mode 2, keep baseDatasets as-is;
-      // but if we previously switched away from All (mode1), we restore All for clarity.
+      // If not in Mode 2, restore All datasets baseline
       if (activeMode !== 'mode2') {
         baseDatasets = allDatasets.slice();
         baseLabel = 'All datasets';
+        lastJsonCfg = null;
         jsonTextarea?.classList.remove('phase12-running', 'phase34-running');
         clearPhaseOutputs();
         populateFiltersFromBase();
