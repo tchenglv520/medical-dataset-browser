@@ -275,6 +275,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ===== Quick filter logic =====
+
+  // NEW: compute unique dataset stats by name (avoid multi-row double count)
+  function computeUniqueStats(rows) {
+    const map = new Map(); // name -> {imagesMax}
+    rows.forEach(d => {
+      const key = d.name || '(unknown)';
+      const v = Number.isFinite(d.data_volume_total) ? d.data_volume_total : 0;
+      if (!map.has(key)) {
+        map.set(key, { imagesMax: v });
+      } else {
+        if (v > map.get(key).imagesMax) {
+          map.get(key).imagesMax = v;
+        }
+      }
+    });
+    const uniqueCount = map.size;
+    const totalImagesUnique = Array.from(map.values()).reduce((s, o) => s + o.imagesMax, 0);
+    return { uniqueCount, totalImagesUnique };
+  }
+
   function applyFilters() {
     const searchTerm = (searchBox?.value || '').toLowerCase().trim();
     const selectedDimension = dimensionFilter?.value || '';
@@ -313,10 +333,11 @@ document.addEventListener('DOMContentLoaded', () => {
       return matchesSearch && matchesDimension && matchesModality && matchesTask;
     });
 
-    const totalVolume = currentFilteredData.reduce((sum, ds) => {
-      return sum + (Number.isFinite(ds.data_volume_total) ? ds.data_volume_total : 0);
-    }, 0);
+    // === NEW: banner now uses UNIQUE dataset count ===
+    const { uniqueCount, totalImagesUnique } = computeUniqueStats(currentFilteredData);
+    const rowCount = currentFilteredData.length;
 
+    // Reset and render table
     tableBody.innerHTML = '';
     currentPage = 1;
 
@@ -324,11 +345,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const via = anyQuick ? `${baseLabel} + Quick filters` : baseLabel;
 
     resultsCount.textContent =
-      currentFilteredData.length > 0
-        ? `Found ${currentFilteredData.length} matching datasets, with approximately ${totalVolume.toLocaleString()} images in total. [via: ${via}]`
+      uniqueCount > 0
+        ? `Found ${uniqueCount} unique datasets (${rowCount} rows), with approximately ${totalImagesUnique.toLocaleString()} images in total. [via: ${via}]`
         : `Found 0 matching datasets. [via: ${via}]`;
 
-    noResultsDiv?.classList.toggle('d-none', currentFilteredData.length > 0);
+    noResultsDiv?.classList.toggle('d-none', uniqueCount > 0);
 
     // Keep global charts in sync with what's visible
     renderAllCharts(currentFilteredData.length ? currentFilteredData : allDatasets);
